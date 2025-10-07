@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/common_toolbar_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:orientation="vertical">
+        <!-- タイトルの行 -->
+        <LinearLayout
+            android:id="@+id/toolbar_header_title_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="30dp"
+            android:paddingBottom="0dp"
+            android:elevation="4dp">
+            <!-- 戻るボタン (左端に配置) -->
+            <ImageButton
+                android:id="@+id/toolbar_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/toolbar_back_button_description"
+                android:src="@drawable/ic_back"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                android:visibility="visible"
+                app:tint="@color/white"/>
+            <!--app:tint="?attr/colorOnPrimary"/>-->
+            <!-- ツールバータイトル (中央、伸縮可能) -->
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center_horizontal"
+                android:text="@string/default_toolbar_title"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <!--android:textColor="?attr/colorOnPrimary"-->
+            <!-- ナビゲーションメニューボタン (右端に配置) -->
+            <ImageButton
+                android:id="@+id/toolbar_menu_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/toolbar_menu_button_description"
+                android:src="@drawable/ic_menu"
+                app:tint="@color/white"/>
+            <!--app:tint="?attr/colorOnPrimary"/>-->
+        </LinearLayout>
+        <!-- ステータスの行 -->
+        <LinearLayout
+            android:id="@+id/toolbar_header_status_row"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- 画面のヒント -->
+            <TextView
+                android:id="@+id/toolbar_hint"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/toolbar_hint_default"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                />
+            <!-- バッテリー残量 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/header_battery_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/baseline_battery_0_bar_24"
+                    android:rotation="90" />
+                <TextView
+                    android:id="@+id/header_battery_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="@string/toolbar_battery_unknown"
+                    android:translationY="-5dp"
+                    />
+            </LinearLayout>
+            <!-- RFIDリーダーの接続状態 -->
+            <ImageView
+                android:id="@+id/header_app_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/rfid_reader_disconnected_icon"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

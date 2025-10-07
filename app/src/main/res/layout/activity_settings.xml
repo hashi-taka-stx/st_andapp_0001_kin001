@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/settings_activity_layout"
+    tools:context=".SettingsActivity">
+
+    <LinearLayout
+        android:id="@+id/fixed_header_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 共通ツールバーの読み込み -->
+        <include
+            android:id="@+id/included_toolbar"
+            layout="@layout/toolbar_header" />
+    </LinearLayout>
+
+    <!-- ▼▼▼ 適用・リセット・戻るボタンのコンテナ ▼▼▼ -->
+    <LinearLayout
+        android:id="@+id/buttons_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_above="@id/navigation_bar_spacer"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:background="?android:attr/windowBackground">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_reset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/label_text_reset"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/button_apply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/label_text_apply" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/label_text_back"/>
+    </LinearLayout>
+    <!-- ▲▲▲ 適用・リセット・戻るボタンのコンテナ ▲▲▲ -->
+    <!-- ナビゲーションバーのためのダミースペーサー -->
+    <Space
+        android:id="@id/navigation_bar_spacer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true" />
+
+    <!-- スクロール可能な設定項目領域 -->
+    <ScrollView
+        android:id="@+id/scrollview_settings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/fixed_header_container"
+        android:layout_above="@id/buttons_container"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- デフォルトHST設定 -->
+            <LinearLayout
+                android:id="@+id/defaulthst_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp">
+                <TextView
+                    android:id="@+id/label_scan_defaulthst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_defaulthst"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/spinner_border"
+                        android:padding="4dp">
+                            <Spinner
+                                android:id="@+id/spinner_defaulthst"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:dropDownWidth="wrap_content"
+                                android:paddingEnd="8dp"
+                                android:textSize="14sp"/>
+                    </FrameLayout>
+                    <Button
+                        android:id="@+id/button_readQR"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_text_readQR"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="16dp"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <!-- 接続ボタン -->
+            <LinearLayout
+                android:id="@+id/connect_button_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="8dp">
+                <Button
+                    android:id="@+id/button_connectHST"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_connectHST"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <!-- 読込フォルダ設定 -->
+            <LinearLayout
+                android:id="@+id/readfolder_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp">
+                <TextView
+                    android:id="@+id/label_scan_readfolder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_readfolder"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/textview_readfolder"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_readfolder"
+                        android:textSize="14sp"
+                        android:ellipsize="start"
+                        android:singleLine="true"
+                        android:background="@drawable/spinner_border" />
+                    <Button
+                        android:id="@+id/button_readfolder_browse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_text_readfolder_browse"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <!-- 書出フォルダ設定 -->
+            <LinearLayout
+                android:id="@+id/writefolder_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp">
+                <TextView
+                    android:id="@+id/label_scan_writefolder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_writefolder"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/textview_witefolder"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_writefolder"
+                        android:ellipsize="start"
+                        android:singleLine="true"
+                        android:textSize="14sp"
+                        android:background="@drawable/spinner_border" />
+                    <Button
+                        android:id="@+id/button_writefolder_browse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/label_text_writefolder_browse"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- スキャン出力設定 -->
+            <LinearLayout
+                android:id="@+id/scan_power_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+                <TextView
+                    android:id="@+id/label_scan_power"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_scanpower"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/spinner_border"
+                    android:padding="4dp">
+                    <Spinner
+                        android:id="@+id/spinner_scan_power"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+                </FrameLayout>
+            </LinearLayout>
+            <!-- Q値設定 -->
+            <LinearLayout
+                android:id="@+id/q_value_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+                <TextView
+                    android:id="@+id/label_q_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_qvalue"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/spinner_border"
+                    android:padding="4dp">
+                    <Spinner
+                        android:id="@+id/spinner_q_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+                </FrameLayout>
+            </LinearLayout>
+
+            <!-- ▼▼▼ 詳細設定のトグルボタン ▼▼▼ -->
+            <LinearLayout
+                android:id="@+id/advanced_settings_toggle_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:background="@drawable/underline_text_color">
+                <!-- 背景をunderline_text_colorに変更 -->
+
+                <ImageView
+                    android:id="@+id/icon_advanced_settings_toggle"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_add_circle_outline"
+                    android:contentDescription="@string/label_advanced_settings"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:id="@+id/label_advanced_settings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_advanced_settings"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+            <!-- ▲▲▲ 詳細設定のトグルボタン ▲▲▲ -->
+
+        <!-- ▼▼▼ 詳細設定項目コンテナ（初期非表示）▼▼▼ -->
+        <LinearLayout
+            android:id="@+id/advanced_settings_items_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:clipToPadding="false"
+            tools:visibility="visible">
+
+            <!-- 使用周波数設定 -->
+            <LinearLayout
+                android:id="@+id/frequency_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+                <TextView
+                    android:id="@+id/label_frequency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_frequency"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/spinner_border"
+                    android:padding="4dp">
+                    <Spinner
+                        android:id="@+id/spinner_frequency"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+                </FrameLayout>
+            </LinearLayout>
+            <!-- セッションID設定 -->
+            <LinearLayout
+                android:id="@+id/sessionid_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+                <TextView
+                    android:id="@+id/label_sesshonid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_sessionid"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/spinner_border"
+                    android:padding="4dp">
+                    <Spinner
+                        android:id="@+id/spinner_sessionid"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+                </FrameLayout>
+            </LinearLayout>
+            <!-- トリガースイッチ設定 -->
+            <LinearLayout
+                android:id="@+id/triggersw_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+                <TextView
+                    android:id="@+id/label_triggersw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_triggersw"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/spinner_border"
+                    android:padding="4dp">
+                    <Spinner
+                        android:id="@+id/spinner_triggersw"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+                </FrameLayout>
+            </LinearLayout>
+            <!-- 省電力設定 -->
+            <LinearLayout
+                android:id="@+id/sleepmode_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+                <TextView
+                    android:id="@+id/label_sleepmode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_sleepmode"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/spinner_border"
+                    android:padding="4dp">
+                    <Spinner
+                        android:id="@+id/spinner_sleepmode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+                </FrameLayout>
+            </LinearLayout>
+            <!-- 変調方式設定 -->
+            <LinearLayout
+                android:id="@+id/ModulationFormat_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+                <TextView
+                    android:id="@+id/label_modulationFormat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_modulationFormat"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/spinner_border"
+                    android:padding="4dp">
+                    <Spinner
+                        android:id="@+id/spinner_modulationFormat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+                </FrameLayout>
+            </LinearLayout>
+            <!-- (Miller)変調回数設定 -->
+            <LinearLayout
+                android:id="@+id/Miller_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+                <TextView
+                    android:id="@+id/label_miller"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_miller"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/spinner_border"
+                    android:padding="4dp">
+                    <Spinner
+                        android:id="@+id/spinner_miller"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+                </FrameLayout>
+            </LinearLayout>
+            <!-- 読取識別番号設定 -->
+            <LinearLayout
+                android:id="@+id/read_identifier_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="0dp">
+
+                <TextView
+                    android:id="@+id/label_read_identifier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_read_identifier"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edittext_read_identifier"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:inputType="number"
+                    android:hint="@string/hint_read_identifier"
+                    android:textSize="14sp"
+                    android:maxLength="3"
+                    android:background="@drawable/spinner_border" />
+            </LinearLayout>
+            <!-- 読取識別番号設定の警告表示テキスト -->
+            <TextView
+                android:id="@+id/read_identifier_warning_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:visibility="gone"
+                android:textColor="@color/red"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="0dp"
+                android:paddingBottom="8dp"/>
+            <!-- フラグAB設定 -->
+            <LinearLayout
+                android:id="@+id/FlagAB_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+                <TextView
+                    android:id="@+id/label_flagAB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_flagAB"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/spinner_border"
+                    android:padding="4dp">
+                    <Spinner
+                        android:id="@+id/spinner_flagAB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+                </FrameLayout>
+            </LinearLayout>
+            <!-- USB充電設定 -->
+            <LinearLayout
+                android:id="@+id/usbcharge_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+                <TextView
+                    android:id="@+id/label_usbcharge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_usbcharge"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/spinner_border"
+                    android:padding="4dp">
+                    <Spinner
+                        android:id="@+id/spinner_usbcharge"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+                </FrameLayout>
+            </LinearLayout>
+            <!-- 偏波設定 -->
+            <LinearLayout
+                android:id="@+id/polarizedwave_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+                <TextView
+                    android:id="@+id/label_polarizedwave"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_polarizedwave"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/spinner_border"
+                    android:padding="4dp">
+                    <Spinner
+                        android:id="@+id/spinner_polarizedwave"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+                </FrameLayout>
+            </LinearLayout>
+            <!-- アプリログレベル設定 -->
+            <LinearLayout
+                android:id="@+id/app_log_level_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_app_log_level"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/spinner_border"
+                    android:padding="4dp">
+                    <Spinner
+                        android:id="@+id/spinner_app_log_level"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+                </FrameLayout>
+            </LinearLayout>
+
+            <!-- アプリログローテート期間設定 -->
+            <LinearLayout
+                android:id="@+id/app_log_rotate_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_app_log_rotate"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/spinner_border"
+                    android:padding="4dp">
+                    <Spinner
+                        android:id="@+id/spinner_app_log_rotate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+                </FrameLayout>
+            </LinearLayout>
+
+            <!-- RFIDリーダードライバログレベル設定 -->
+            <LinearLayout
+                android:id="@+id/driver_log_level_settings_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_driver_log_level"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/spinner_border"
+                    android:padding="4dp">
+                    <Spinner
+                        android:id="@+id/spinner_driver_log_level"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+                </FrameLayout>
+            </LinearLayout>
+            <!-- ログ表示ボタン -->
+            <LinearLayout
+                android:id="@+id/showlog_button_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="8dp">
+                <Button
+                    android:id="@+id/button_showlog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_text_showlog"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+            <!-- ▲▲▲ 詳細設定項目コンテナ ▲▲▲ -->
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <!-- ナビゲーションドロワー -->
+    <FrameLayout
+        android:id="@+id/drawer_layout"
+        tools:visibility="gone"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/nav_drawer" />
+    </FrameLayout>
+</RelativeLayout>

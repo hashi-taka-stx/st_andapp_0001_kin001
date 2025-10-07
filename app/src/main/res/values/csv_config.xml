@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- CSV Configuration Strings for MasterTable -->
+
+    <!-- Default file settings for CSV export -->
+    <string name="default_csv_filename_base">商品</string>
+    <string name="default_csv_export_tag">棚卸</string>
+    <string name="default_csv_file_extension">.csv</string>
+    <string name="default_file_type">text/csv</string>
+
+    <!-- CSV Header Names -->
+    <string name="csv_header_product_code">商品コード</string>
+    <string name="csv_header_order_datetime">発注年月日</string>
+    <string name="csv_header_location">置き場</string>
+    <string name="csv_header_product_name1">商品名１</string>
+    <string name="csv_header_product_name2">商品名２</string>
+    <string name="csv_header_book_inventory">理論在庫数</string>
+    <string name="csv_header_physical_inventory">棚卸在庫数</string>
+    <string name="csv_header_product_epc">商品EPC</string>
+    <string name="csv_header_scan_result">棚卸結果</string>
+
+    <!-- Database Column Names (英語表記 - DB内部で使用) -->
+    <string name="db_col_id">_id</string>
+    <string name="db_col_product_code">product_code</string>
+    <string name="db_col_order_datetime">order_datetime</string>
+    <string name="db_col_location">location</string>
+    <string name="db_col_product_name1">product_name1</string>
+    <string name="db_col_product_name2">product_name2</string>
+    <string name="db_col_book_inventory">book_inventory</string>
+    <string name="db_col_physical_inventory">physical_inventory</string>
+    <string name="db_col_product_epc">product_epc</string>
+    <string name="db_col_scan_result">scan_result</string>
+
+    <!-- Defines the order and content of the CSV header row for export. -->
+    <!-- Also used by checkCsvFormat to validate imported CSV headers. -->
+    <string-array name="csv_master_table_headers">
+        <item>@string/csv_header_product_code</item>
+        <item>@string/csv_header_order_datetime</item>
+        <item>@string/csv_header_location</item>
+        <item>@string/csv_header_product_name1</item>
+        <item>@string/csv_header_product_name2</item>
+        <item>@string/csv_header_book_inventory</item>
+        <item>@string/csv_header_physical_inventory</item>
+        <item>@string/csv_header_product_epc</item>
+        <item>@string/csv_header_scan_result</item>
+    </string-array>
+
+    <!-- Scan Resultの値 -->
+    <string-array name="csv_scan_result_strings">
+        <item>未実施</item>
+        <item>一致</item>
+        <item>不足</item>
+        <item>超過</item>
+    </string-array>
+
+</resources>

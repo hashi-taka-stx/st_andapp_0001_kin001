@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.St_andapp_0001_kin001" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/cool_blue</item>
+<!--        <item name="colorOnPrimary">@color/white</item>
+-->        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/cool_blue</item>
+<!--        <item name="colorOnSecondary">@color/white</item>
+-->        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/light_cool_blue</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+</resources>

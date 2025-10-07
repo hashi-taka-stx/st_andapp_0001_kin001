@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductListActivity">
+
+    <!-- メインコンテンツ -->
+    <LinearLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!-- ツールバー -->
+        <LinearLayout
+            android:id="@+id/fixed_header_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 共通ツールバーの読み込み -->
+            <include
+                android:id="@+id/included_toolbar"
+                layout="@layout/toolbar_header" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ListView
+                android:id="@+id/list_view_products"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@android:color/darker_gray"
+                android:dividerHeight="1dp"/>
+
+            <TextView
+                android:id="@+id/empty_view_product_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/layout_activity_product_list_empty_text"
+                android:visibility="gone"
+                android:textSize="18sp"/>
+        </LinearLayout>
+        <!-- 棚卸モードボタン -->
+        <Button
+            android:id="@+id/inventory_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/navigation_bar_spacer"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/layout_activity_item_detail_utton_inventory_mode_text"
+            android:textSize="32sp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            style="@style/Widget.AppCompat.Button.Colored" />
+            <!-- ナビゲーションバーのためのダミースペーサー -->
+            <Space
+                android:id="@id/navigation_bar_spacer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+    </LinearLayout>
+    <!-- ナビゲーションドロワー -->
+    <FrameLayout
+        android:id="@+id/drawer_layout"
+        tools:visibility="gone"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/nav_drawer" />
+    </FrameLayout>
+</RelativeLayout>

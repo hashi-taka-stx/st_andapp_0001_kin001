@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="jp.co.softtex.st_andapp_0001_kin001"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"
+        android:minSdkVersion="31"
+        android:usesPermissionFlags="neverForLocation" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"
+        android:minSdkVersion="31" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:name="jp.co.softtex.st_andapp_0001_kin001.MyApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.St_andapp_0001_kin001"
+        tools:targetApi="35">
+        <activity
+            android:name="jp.co.softtex.st_andapp_0001_kin001.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="jp.co.softtex.st_andapp_0001_kin001.ProductListActivity"
+            android:exported="true"
+            android:parentActivityName="jp.co.softtex.st_andapp_0001_kin001.MainActivity">
+        </activity>
+        <activity
+            android:name="jp.co.softtex.st_andapp_0001_kin001.ItemDetailActivity"
+            android:exported="true"
+            android:parentActivityName="jp.co.softtex.st_andapp_0001_kin001.ProductListActivity">
+        </activity>
+        <activity
+            android:name="jp.co.softtex.st_andapp_0001_kin001.FileManageActivity"
+            android:exported="false"
+            android:parentActivityName="jp.co.softtex.st_andapp_0001_kin001.MainActivity">
+        </activity>
+        <activity
+            android:name="jp.co.softtex.st_andapp_0001_kin001.ConnectionActivity"
+            android:exported="false"
+            android:parentActivityName="jp.co.softtex.st_andapp_0001_kin001.MainActivity">
+        </activity>
+        <activity
+            android:name="jp.co.softtex.st_andapp_0001_kin001.MakeInventoryActivity"
+            android:exported="true"
+            android:parentActivityName="jp.co.softtex.st_andapp_0001_kin001.MainActivity">
+        </activity>
+        <activity
+            android:name="jp.co.softtex.st_andapp_0001_kin001.ResultInventoryActivity"
+            android:exported="true"
+            android:parentActivityName="jp.co.softtex.st_andapp_0001_kin001.MainActivity">
+        </activity>
+        <activity
+            android:name="jp.co.softtex.st_andapp_0001_kin001.SettingsActivity"
+            android:exported="true"
+            android:parentActivityName="jp.co.softtex.st_andapp_0001_kin001.MainActivity">
+        </activity>
+        <activity
+            android:name="jp.co.softtex.st_andapp_0001_kin001.DisplayLogActivity"
+            android:exported="true"
+            android:parentActivityName="jp.co.softtex.st_andapp_0001_kin001.SettingsActivity">
+        </activity>
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+        tools:replace="screenOrientation" />
+        <activity
+            android:name="jp.co.softtex.st_andapp_0001_kin001.CameraActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            >
+        </activity>
+        <activity
+            android:name="jp.co.softtex.st_andapp_0001_kin001.AboutActivity"
+            android:exported="true">
+        </activity>
+    </application>
+
+</manifest>

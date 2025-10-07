@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- アプリ名 -->
+    <string name="app_title">棚卸業務管理アプリ</string>
+    <string name="app_name">ScanTag-X</string>
+    <!-- ナビゲーションドロワー関連のコンテンツ記述 -->
+    <string name="open_drawer_description">ナビゲーションメニューを開く</string>
+    <string name="close_drawer_description">ナビゲーションメニューを閉じる</string>
+    <string-array name="navigation_drawer_menulist">
+        <item>ホーム画面</item>
+        <item>ファイル管理</item>
+        <item>セッティング</item>
+        <item>バージョン情報</item>
+    </string-array>
+    <string name="navigation_drawer_menulist_not_assigned">未対応のメニュー項目: %s</string>
+    <!-- ツールバー -->
+    <string name="toolbar_hint_default">画面のヒント</string>
+    <string name="toolbar_battery_remains">100%</string>
+    <string name="toolbar_battery_level_format">%d%%</string>
+    <string name="toolbar_battery_unknown">--%</string>
+    <!-- 各Activityのタイトル -->
+    <string name="activity_main_title">置き場一覧</string>
+    <string name="activity_product_list_title">商品一覧</string>
+    <string name="activity_item_detail_title">商品詳細</string>"
+    <string name="activity_connection_title">RFIDリーダー接続</string>
+    <string name="activity_make_inventory_title">棚卸(RFIDタグ読取)</string>
+    <string name="activity_make_inventory_result_title">棚卸結果</string>
+    <string name="activity_settings_title">セッティング</string>
+    <string name="activity_file_manage_title">ファイル管理</string>
+    <string name="activity_about_title">バージョン情報</string>
+    <string name="activity_display_log">ログ画面</string>
+    <!-- 各Activityのヒント -->
+    <string name="activity_main_hint">置き場を選択してください。</string>
+    <string name="activity_product_list_hint">「棚卸モード」で全ての商品の棚卸を行います。</string>
+    <string name="activity_item_detail_hint">「棚卸モード」でこの商品の棚卸を行います。</string>"
+    <string name="activity_connection_hint">使用するRFIDリーダーのMACアドレスを選択してください。</string>
+    <string name="activity_make_inventory_hint_first">「読取開始」で商品のタグの読取を開始します。</string>
+    <string name="activity_make_inventory_hint_reading">「読取停止」で商品のタグの読取を停止します。</string>
+    <string name="activity_make_inventory_hint_finish">「棚卸終了」で棚卸の結果を表示します。</string>
+    <string name="activity_make_inventory_result_hint">「棚卸確定」で実在庫を反映します。</string>
+    <string name="activity_settings_hint">設定を変更後、「適用」ボタンを押してください。</string>
+    <string name="activity_file_manage_hint">在庫ファイル・棚卸ファイルの読み込みと書き出しを行います。</string>
+    <string name="activity_about_hint"></string>
+
+
+    <!-- ツールバー、ナビゲーションメニュー -->
+    <string name="toolbar_menu_button_description">ナビゲーションメニューを開く</string>
+    <string name="default_toolbar_title">ホーム</string>
+    <string name="toolbar_back_button_description">前の画面に戻る</string>
+    <!-- バーチャルボタンのパディング用ID -->
+    <item name="navigation_bar_spacer" type="id"/>
+
+    <!-- activity_main.xml -->
+    <string name="layout_activity_main_textfview_empty_list_text">在庫データがありません。\n\n %sから在庫リストを\n読み込んでください。</string>
+    <!-- activity_product_list.xml -->
+    <string name="layout_activity_product_list_empty_text">商品がありません</string>
+    <!-- row_location.xml -->
+    <string name="layout_row_location_default">デフォルトの置き場</string>
+    <string name="layout_row_location_all">全ての置き場</string>
+    <!-- row_product.xml -->
+    <string name="layout_row_product_code_text">商品コード:</string>
+    <string name="layout_row_product_code_default">2220000</string>
+    <string name="layout_row_location_text">置き場:</string>
+    <string name="layout_row_product_name1_default">商品名1</string>
+    <string name="layout_row_product_name2_default">商品名2</string>
+    <string name="layout_row_product_EPC_text">RFID 商品EPC:</string>
+    <string name="layout_row_product_EPC_default">05305295810021E01B000000</string>
+    <string name="layout_row_product_book_inventory_text">帳簿在庫</string>
+    <string name="layout_row_product_physical_inventory_text">実在庫</string>
+    <!-- activity_item_detail.xml -->
+    <!-- フォントサイズ自動調整パラメータ -->
+    <dimen name="layout_activity_item_detail_property_textSize">18sp</dimen>
+    <string name="layout_activity_item_detail_autoSizeTextType">uniform</string>
+    <dimen name="layout_activity_item_detail_autoSizeMinTextSize">12sp</dimen>
+    <dimen name="layout_activity_item_detail_autoSizeMaxTextSize">20sp</dimen>
+    <dimen name="layout_activity_item_detail_autoSizeStepGranularity">2sp</dimen>
+    <dimen name="layout_activity_product_list_property_textSize">18sp</dimen>
+    <string name="layout_activity_product_list_autoSizeTextType">uniform</string>
+    <dimen name="layout_activity_product_list_autoSizeMinTextSize">6sp</dimen>
+    <dimen name="layout_activity_product_list_autoSizeMaxTextSize">12sp</dimen>
+    <dimen name="layout_activity_product_list_autoSizeStepGranularity">1sp</dimen>
+    <dimen name="layout_activity_product_list_num_autoSizeMinTextSize">8sp</dimen>
+    <dimen name="layout_activity_product_list_num_autoSizeMaxTextSize">20sp</dimen>
+    <!-- レイアウト -->
+    <string name="layout_activity_item_detail_product_code_text">商品コード:</string>
+    <string name="layout_activity_item_detail_product_code_default">2220000</string>
+    <string name="layout_activity_item_detail_order_datetime_text">発注日時:</string>
+    <string name="layout_activity_item_detail_order_datetime_default">2025/01/01 23:59</string>
+    <string name="layout_activity_item_detail_order_location_text">置き場:</string>
+    <string name="layout_activity_item_detail_name1_default">商品名1</string>
+    <string name="layout_activity_item_detail_name2_default">商品名2</string>
+    <string name="layout_activity_item_detail_epc_text">RFID 商品EPC:</string>
+    <string name="layout_activity_item_detail_epc_default">05305295810021E01B</string>
+    <string name="layout_activity_item_detail_book_inventory_text">帳簿在庫:</string>
+    <string name="layout_activity_item_detail_physical_inventory_text">実在庫　:</string>
+    <string name="layout_activity_item_detail_utton_inventory_mode_text">棚卸モード</string>
+    <!-- activty_make_inventory.xml -->
+    <string name="layout_activity_make_inventory_book_inventory_label">帳簿在庫数:</string>
+    <string name="layout_activity_make_inventory_physical_inventory_label">読取在庫数:</string>
+    <string name="layout_activity_make_inventory_unregistered_inventory_label">未登録在庫数:</string>
+    <string name="button_activity_make_inventory_start_read">読取開始</string>
+    <string name="button_activity_make_inventory_stop_read">読取停止</string>
+    <string name="button_activity_make_inventory_finish">棚卸終了</string>
+    <string name="loading_inventory_data">棚卸対象リストを読み込み中...</string>
+    <string name="checkbox_activity_make_inventory_count_other_location">異なる置き場の商品もカウントする</string>
+    <!-- activity_result_inventory.xml -->
+    <string name="button_activity_result_inventory_confirm_inventory">棚卸確定</string>
+    <string name="button_activity_result_inventory_cancel_inventory">棚卸取消</string>
+    <string name="checkbox_activity_result_inventory_save_result">棚卸結果を自動保存する</string>
+    <!-- activiy_about.xml -->
+    <string name="app_icon_description">アプリアイコン</string>
+    <string name="version_name_label">バージョン名:</string>
+    <string name="version_code_label">バージョンコード:</string>
+    <string name="build_date_label">ビルド日時:</string>
+</resources>

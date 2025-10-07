@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- デフォルトHST設定 -->
+    <string name="label_text_defaulthst">初期HST</string>
+    <string name="label_text_disconnectHST">切断</string>
+    <string name="label_text_readQR">QR読取</string>
+    <string name="label_text_connectHST">接続</string>
+    <string name="array_defaulthst_display_names">XX:XX:XX:XX:XX:XX</string>
+    <string name="array_defaulthst_display_values">00:00:00:00:00:00</string>
+    <!-- 読込フォルダ設定 -->
+    <string name="label_text_readfolder">読込フォルダ</string>
+    <string name="hint_readfolder">/PATH</string>
+    <string name="label_text_readfolder_browse">参照</string>
+    <!-- 書出フォルダ設定 -->
+    <string name="label_text_writefolder">書出フォルダ</string>
+    <string name="hint_writefolder">/PATH</string>
+    <string name="label_text_writefolder_browse">参照</string>
+
+    <!-- スキャン出力設定 -->
+    <string name="label_text_scanpower">スキャン出力</string>
+    <string-array name="array_scanpower_display_names">
+        <item>1000mW</item>
+        <item>870mW</item>
+        <item>758mW</item>
+        <item>660mW</item>
+        <item>575mW</item>
+        <item>500mW</item>
+        <item>410mW</item>
+        <item>336mW</item>
+        <item>276mW</item>
+        <item>226mW</item>
+        <item>186mW</item>
+        <item>152mW</item>
+        <item>125mW</item>
+        <item>97mW</item>
+        <item>75mW</item>
+        <item>58mW</item>
+        <item>45mW</item>
+        <item>35mW</item>
+        <item>27mW</item>
+        <item>21mW</item>
+        <item>16mW</item>
+        <item>13mW</item>
+        <item>9.8mW</item>
+        <item>7.6mW</item>
+        <item>5.9mW</item>
+        <item>4.6mW</item>
+        <item>3.6mW</item>
+        <item>2.8mW</item>
+        <item>2.1mW</item>
+        <item>1.7mW</item>
+        <item>1.3mW</item>
+        <item>1.0mW</item>
+    </string-array>
+    <integer name="default_scanpower">19</integer>
+    <integer-array name="array_scanpower_display_values">
+        <item>31</item>
+        <item>30</item>
+        <item>29</item>
+        <item>28</item>
+        <item>27</item>
+        <item>26</item>
+        <item>25</item>
+        <item>24</item>
+        <item>23</item>
+        <item>22</item>
+        <item>21</item>
+        <item>20</item>
+        <item>19</item>
+        <item>18</item>
+        <item>17</item>
+        <item>16</item>
+        <item>15</item>
+        <item>14</item>
+        <item>13</item>
+        <item>12</item>
+        <item>11</item>
+        <item>10</item>
+        <item>9</item>
+        <item>8</item>
+        <item>7</item>
+        <item>6</item>
+        <item>5</item>
+        <item>4</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </integer-array>
+    <!-- Q値設定 -->
+    <string name="label_text_qvalue">Q値</string>
+    <string-array name="array_qvalue_display_names">
+        <item>1 tag</item>
+        <item>1-4 tags</item>
+        <item>1-8 tags</item>
+        <item>1-16 tags</item>
+        <item>1-32 tags</item>
+        <item>1-64 tags</item>
+        <item>1-128 tags</item>
+        <item>1-256 tags</item>
+        <item>1-512 tags</item>
+        <item>1-1024 tags</item>
+        <item>1-2048 tags</item>
+    </string-array>
+    <integer name="default_qvalue">4</integer>
+    <integer-array name="array_qvalue_display_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </integer-array>
+    <!-- 詳細設定のトグルボタン -->
+    <string name="label_advanced_settings">詳細設定</string>
+    <!-- 使用周波数設定 -->
+    <string name="label_text_frequency">周波数</string>
+    <string-array name="array_frequency_display_names">
+        <item>Auto</item>
+        <item>5ch</item>
+        <item>11ch</item>
+        <item>17ch</item>
+        <item>23ch</item>
+        <item>24ch</item>
+        <item>25ch</item>
+    </string-array>
+    <integer name="default_frequency">1001</integer>
+    <integer-array name="array_frequency_display_values">
+        <item>1001</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </integer-array>
+    <!-- セッションID設定 -->
+    <string name="label_text_sessionid">セッションID</string>
+    <string-array name="array_sessionid_display_names">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <integer name="default_sessionid">0</integer>
+    <integer-array name="array_sessionid_display_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </integer-array>
+    <!-- トリガースイッチ設定 -->
+    <string name="label_text_triggersw">トリガースイッチ</string>
+    <string-array name="array_triggersw_display_names">
+        <item>押している間だけON</item>
+        <item>ホールドモード</item>
+        <item>トリガースイッチ無効</item>
+    </string-array>
+    <integer name="default_triggersw">3</integer>
+    <integer-array name="array_triggersw_display_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </integer-array>
+    <!-- 省電力設定 -->
+    <string name="label_text_sleepmode">省電力設定</string>
+    <string-array name="array_sleepmode_display_names">
+        <item>省電力スリープ無効</item>
+        <item>電波停止3秒後にスリープ</item>
+    </string-array>
+    <integer name="default_sleepmode">0</integer>
+    <integer-array name="array_sleepmode_display_values">
+        <item>0</item>
+        <item>1</item>
+    </integer-array>
+    <!-- 変調方式設定 -->
+    <string name="label_text_modulationFormat">変調方式</string>
+    <string-array name="array_modulationformat_display_names">
+        <item>FM0 低速</item>
+        <item>FM0 中速</item>
+        <item>FM0 250kHz</item>
+        <item>FM0 300kHz</item>
+        <item>Miller 低速</item>
+        <item>Miller 中速</item>
+        <item>Miller 高速</item>
+    </string-array>
+    <integer name="default_modulationformat">1</integer>
+    <integer-array name="array_modulationformat_display_values">
+        <item>0</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>3</item>
+        <item>1</item>
+        <item>2</item>
+    </integer-array>
+    <!-- (Miller)変調回数設定 -->
+    <string name="label_text_miller">(Miller)変調回数</string>
+    <string-array name="array_miller_display_names">
+        <item>Miller 2</item>
+        <item>Miller 4</item>
+        <item>Miller 8</item>
+    </string-array>
+    <integer name="default_miller">2</integer>
+    <integer-array name="array_miller_display_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </integer-array>
+    <!-- 読取識別番号設定 -->
+    <string name="label_text_read_identifier">読取識別番号</string>
+    <string name="hint_read_identifier">0 (無効) または 1-142</string>
+    <integer name="read_identifier_disable">0</integer>
+    <integer name="read_identifier_min">1</integer>
+    <integer name="read_identifier_max">142</integer>
+    <string name="read_identifier_warning_non_numeric">数字を入力してください。</string>
+    <string name="read_identifier_warning_out_of_range">0 (無効) または 1-142を入力してください。</string>
+    <string name="read_identifier_warning_text_empty">数字を入力してください。</string>
+    <!-- フラグAB設定 -->
+    <string name="label_text_flagAB">フラグA/B</string>
+    <string-array name="array_flagAB_display_names">
+        <item>フラグA/B両方</item>
+        <item>フラグAのみ</item>
+    </string-array>
+    <integer name="default_flagAB">0</integer>
+    <integer-array name="array_flagAB_display_values">
+        <item>0</item>
+        <item>1</item>
+    </integer-array>
+    <!-- USB充電設定 -->
+    <string name="label_text_usbcharge">USB充電</string>
+    <string-array name="array_usbcharge_display_names">
+        <item>USB充電禁止</item>
+        <item>USB充電許可</item>
+    </string-array>
+    <integer name="default_usbcharge">0</integer>
+    <integer-array name="array_usbcharge_display_values">
+        <item>0</item>
+        <item>1</item>
+    </integer-array>
+    <!-- 偏波設定 -->
+    <string name="label_text_polarizedwave">偏波</string>
+    <string-array name="array_polarizedwave_display_names">
+        <item>垂直水平偏波</item>
+        <item>垂直偏波のみ</item>
+        <item>水平偏波のみ</item>
+    </string-array>
+    <integer name="default_polarizedwave">0</integer>
+    <integer-array name="array_polarizedwave_display_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </integer-array>
+    <!-- アプリログレベル設定 -->
+    <string name="label_text_app_log_level">アプリログレベル</string>
+    <string-array name="array_app_log_level_display_names">
+        <item>VERBOSE (詳細)</item>
+        <item>DEBUG (デバッグ)</item>
+        <item>INFO (情報)</item>
+        <item>WARN (警告)</item>
+        <item>ERROR (エラー)</item>
+        <item>ASSERT (アサート)</item>
+        <item>SUPPRESS (出力しない)</item>
+    </string-array>
+    <integer name="default_app_log_level">4</integer>
+    <integer-array name="array_app_log_level_display_values">
+        <item>2</item> <!-- Log.VERBOSE -->
+        <item>3</item> <!-- Log.DEBUG -->
+        <item>4</item> <!-- Log.INFO -->
+        <item>5</item> <!-- Log.WARN -->
+        <item>6</item> <!-- Log.ERROR -->
+        <item>7</item> <!-- Log.ASSERT -->
+        <item>8</item> <!-- LogLevel.SUPPRESS (独自定義) -->
+    </integer-array>
+    <!-- アプリログローテート期間 -->
+    <string name="label_text_app_log_rotate">アプリログローテート</string>
+    <string-array name="array_app_log_rotate_display_names">
+        <item>1日</item>
+        <item>1週間</item>
+        <item>1ヶ月</item>
+        <item>3ヶ月</item>
+        <item>半年</item>
+        <item>1年</item>
+    </string-array>
+    <integer name="default_app_log_rotate">365</integer>
+    <integer-array name="array_app_log_rotate_display_values">
+        <item>1</item>    <!-- 1日 -->
+        <item>7</item>    <!-- 7日 -->
+        <item>30</item>   <!-- 30日 (おおよそ1ヶ月) -->
+        <item>90</item>   <!-- 90日 (おおよそ3ヶ月) -->
+        <item>180</item>  <!-- 180日 (おおよそ半年) -->
+        <item>365</item>  <!-- 365日 -->
+    </integer-array>
+    <!-- ③ RFIDリーダードライバログレベル -->
+    <string name="label_text_driver_log_level">RFIDリーダードライバログレベル</string>
+    <string-array name="array_driver_log_level_display_names">
+        <item>レベル 0 (低)</item>
+        <item>レベル 1</item>
+        <item>レベル 2</item>
+        <item>レベル 3 (高)</item>
+    </string-array>
+    <integer name="default_driver_log_level">0</integer>
+    <integer-array name="array_driver_log_level_display_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </integer-array>
+    <!-- ログ表示ボタン -->
+    <string name="label_text_showlog">ログ表示</string>
+    <!-- 適用ボタン -->
+    <string name="label_text_apply">適用</string>
+    <!-- キャンセルボタン -->
+    <string name="label_text_reset">リセット</string>
+    <!-- 戻るボタン -->
+    <string name="label_text_back">戻る</string>
+</resources>

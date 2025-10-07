@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_result_inventory_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ResultInventoryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- ツールバー -->
+        <LinearLayout
+            android:id="@+id/fixed_header_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 共通ツールバーの読み込み -->
+            <include
+                android:id="@+id/included_toolbar"
+                layout="@layout/toolbar_header" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/navigation_bar_spacer"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:gravity="center">
+
+                    <!-- 棚卸取消ボタン -->
+                    <Button
+                        android:id="@+id/button_cancel_inventory"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/button_activity_result_inventory_cancel_inventory"
+                        android:textSize="20sp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"/>
+                    <!-- 棚卸確定ボタン -->
+                    <Button
+                        android:id="@+id/button_confirm_inventory"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/button_activity_result_inventory_confirm_inventory"
+                        android:textSize="20sp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"/>
+                </LinearLayout>
+
+                <!-- 棚卸結果保存チェックボックス -->
+                <CheckBox
+                    android:id="@+id/checkBox_save_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/checkbox_activity_result_inventory_save_result"
+                    android:textSize="16sp"
+                    android:checked="true"
+                    />
+
+                <ListView
+                    android:id="@+id/listView_inventory_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="60dp"/>
+
+            </LinearLayout>
+            <!-- ナビゲーションバーのためのダミースペーサー -->
+            <Space
+                android:id="@id/navigation_bar_spacer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+    </LinearLayout>
+    <!-- プログレスバーの配置 -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <!-- ナビゲーションドロワー -->
+    <FrameLayout
+        android:id="@+id/drawer_layout"
+        tools:visibility="gone"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/nav_drawer" />
+    </FrameLayout>
+</RelativeLayout>

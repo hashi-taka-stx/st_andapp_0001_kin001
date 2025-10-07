@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".ConnectionActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- ツールバー -->
+        <LinearLayout
+            android:id="@+id/fixed_header_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 共通ツールバーの読み込み -->
+            <include
+                android:id="@+id/included_toolbar"
+                layout="@layout/toolbar_header" />
+        </LinearLayout>
+
+        <!-- 内枠のフレーム -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/navigation_bar_spacer"
+                android:orientation="vertical">
+                <Button
+                    android:id="@+id/connectButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:enabled="false"
+                    android:textSize="32sp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:text="@string/button_connect"
+                    style="@style/Widget.AppCompat.Button.Colored" />
+
+                <LinearLayout
+                    android:id="@+id/macAddressLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/macAddressEditText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:hint="BLE MAC Address"
+                        android:inputType="none"
+                        android:maxLength="17"
+                        android:focusable="false"/>
+                    <Button
+                        android:id="@+id/button_readQR"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/label_text_readQR"
+                        android:padding="12dp"
+                        android:textSize="20sp"
+                        style="@style/Widget.AppCompat.Button.Colored" />
+                </LinearLayout>
+                <!-- MACアドレスリストを表示するListView -->
+                <ListView
+                    android:id="@+id/macAddressListView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:choiceMode="singleChoice"
+                    android:divider="@android:color/darker_gray"
+                    android:clipToPadding="false"
+                    android:dividerHeight="1dp" />
+            </LinearLayout>
+            <!-- ナビゲーションバーのためのダミースペーサー -->
+            <Space
+                android:id="@id/navigation_bar_spacer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+    </LinearLayout>
+    <!-- プログレスバーの配置 -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <!-- ナビゲーションドロワー -->
+    <FrameLayout
+        android:id="@+id/drawer_layout"
+        tools:visibility="gone"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/nav_drawer" />
+    </FrameLayout>
+</RelativeLayout>

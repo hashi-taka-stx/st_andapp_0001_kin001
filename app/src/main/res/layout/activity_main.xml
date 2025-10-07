@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".MainActivity">
+
+    <!-- メインコンテンツ -->
+    <LinearLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- ツールバー -->
+        <LinearLayout
+            android:id="@+id/fixed_header_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 共通ツールバーの読み込み -->
+            <include
+                android:id="@+id/included_toolbar"
+                layout="@layout/toolbar_header" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/navigation_bar_spacer"
+                android:orientation="vertical">
+                <!-- 在庫テーブルなし -->
+                <TextView
+                    android:id="@+id/layout_activity_main_textfview_empty_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="20sp"
+
+                    android:clipToPadding="false"
+                    android:visibility="visible"/>
+                <!-- 在庫一覧 -->
+                <ListView
+                    android:id="@+id/layout_activity_main_listview_itemMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    />
+            </LinearLayout>
+            <!-- ナビゲーションバーのためのダミースペーサー -->
+            <Space
+                android:id="@id/navigation_bar_spacer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- ナビゲーションドロワー -->
+    <FrameLayout
+        android:id="@+id/drawer_layout"
+        tools:visibility="gone"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/nav_drawer" />
+    </FrameLayout>
+</FrameLayout>

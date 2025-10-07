@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".ItemDetailActivity">
+
+    <!-- メインコンテンツ -->
+    <LinearLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!-- ツールバー -->
+        <LinearLayout
+            android:id="@+id/fixed_header_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 共通ツールバーの読み込み -->
+            <include
+                android:id="@+id/included_toolbar"
+                layout="@layout/toolbar_header" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <!-- アイテム詳細コンテンツ -->
+            <LinearLayout
+                android:id="@+id/linearLayout_item_detail_property"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <!-- 商品コード -->
+                <LinearLayout
+                    android:id="@+id/linearLayout_detail_stock_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12sp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/layout_item_detail_textview_product_code_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="@string/layout_activity_item_detail_product_code_text"
+                        android:textAlignment="viewStart" />
+                    <TextView
+                        android:id="@+id/layout_item_detail_textview_product_code"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="@string/layout_activity_item_detail_product_code_default"
+                        android:textIsSelectable="true"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
+
+                <!-- 発行日時 -->
+                <LinearLayout
+                    android:id="@+id/linearLayout_detail_order_datetime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12sp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/layout_item_detail_textview_order_datetime_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="@string/layout_activity_item_detail_order_datetime_text"
+                        android:textAlignment="viewStart" />
+                    <TextView
+                        android:id="@+id/layout_item_detail_textview_order_datetime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="@string/layout_activity_item_detail_order_datetime_default"
+                        android:textIsSelectable="true"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
+
+                <!-- 置き場 -->
+                <LinearLayout
+                    android:id="@+id/linearLayout_detail_order_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12sp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/layout_item_detail_textview_order_location_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="@string/layout_activity_item_detail_order_location_text"
+                        android:textAlignment="viewStart" />
+                    <TextView
+                        android:id="@+id/layout_item_detail_textview_order_location"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text=""
+                        android:textIsSelectable="true"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
+
+                <!-- 商品名 -->
+                <LinearLayout
+                    android:id="@+id/linearLayout_detail_stock_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/layout_item_detail_textview_product_name1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="@string/layout_activity_item_detail_name1_default"
+                        android:textIsSelectable="true"
+                        android:layout_marginBottom="12sp"
+                        android:textAlignment="viewStart" />
+                    <TextView
+                        android:id="@+id/layout_item_detail_textview_product_name2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="@string/layout_activity_item_detail_name2_default"
+                        android:textIsSelectable="true"
+                        android:layout_marginBottom="12sp"
+                        android:textAlignment="viewStart" />
+                </LinearLayout>
+
+                <!-- 商品 EPC -->
+                <LinearLayout
+                    android:id="@+id/linearLayout_detail_product_epc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12sp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/layout_item_detail_textview_product_epc_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="@string/layout_activity_item_detail_epc_text" />
+                    <TextView
+                        android:id="@+id/layout_item_detail_textview_product_epc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textSize="18sp"
+                        android:textIsSelectable="true"
+                        android:text="@string/layout_activity_item_detail_epc_default" />
+                </LinearLayout>
+                <!-- 帳簿在庫 -->
+                <LinearLayout
+                    android:id="@+id/linearLayout_detail_book_inventory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12sp"
+                    android:orientation="horizontal" >
+                    <TextView
+                        android:id="@+id/layout_item_detail_textview_book_inventory_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="@string/layout_activity_item_detail_book_inventory_text" />
+                    <TextView
+                        android:id="@+id/layout_item_detail_textview_book_exist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textSize="18sp"
+                        android:textIsSelectable="true"
+                        android:text="" />
+                </LinearLayout>
+
+                <!-- 実在庫 -->
+                <LinearLayout
+                    android:id="@+id/linearLayout_detail_physical_inventory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12sp"
+                    android:orientation="horizontal" >
+                    <TextView
+                        android:id="@+id/layout_item_detail_textview_physical_inventory_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="@string/layout_activity_item_detail_physical_inventory_text" />
+                    <TextView
+                        android:id="@+id/layout_item_detail_textview_physical_exist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:textSize="18sp"
+                        android:textIsSelectable="true"
+                        android:text="" />
+            </LinearLayout>
+        </LinearLayout>
+        <!-- 棚卸モードボタン -->
+        <Button
+            android:id="@+id/inventory_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/layout_activity_item_detail_utton_inventory_mode_text"
+            android:textSize="32sp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:layout_above="@id/navigation_bar_spacer"
+            style="@style/Widget.AppCompat.Button.Colored" />
+
+            <!-- ナビゲーションバーのためのダミースペーサー -->
+            <Space
+                android:id="@id/navigation_bar_spacer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- ナビゲーションドロワー -->
+    <FrameLayout
+        android:id="@+id/drawer_layout"
+        tools:visibility="gone"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/nav_drawer" />
+    </FrameLayout>
+</RelativeLayout>

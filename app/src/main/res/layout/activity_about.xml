@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AboutActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!-- タイトルの行 -->
+        <LinearLayout
+            android:id="@+id/toolbar_header_title_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="30dp"
+            android:paddingBottom="12dp"
+            android:elevation="4dp"
+            android:background="?attr/colorPrimary">
+            <!-- 位置調整用のボタン(不可視) -->
+            <ImageButton
+                android:id="@+id/toolbar_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/toolbar_back_button_description"
+                android:src="@drawable/ic_back"
+                android:visibility="invisible"
+                app:tint="@color/white"/>
+            <!-- ツールバータイトル (中央、伸縮可能) -->
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center_horizontal"
+                android:text="@string/activity_about_title"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <!-- クローズボタン (右端に配置) -->
+            <ImageButton
+                android:id="@+id/toolbar_close_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_close"
+                android:scaleX="1.4"
+                android:scaleY="1.4"
+                app:tint="@color/white"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/app_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/app_icon_image_view"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@string/app_icon_description"
+                app:srcCompat="@drawable/ic_launcher_foreground" />
+
+            <TextView
+                android:id="@+id/app_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp"/>
+
+            <TextView
+                android:id="@+id/version_name_label_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/version_name_label"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/version_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="1.0.0"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/version_code_label_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/version_code_label"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/version_code_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Build Date Label -->
+            <TextView
+                android:id="@+id/build_date_label_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/build_date_label"
+                android:textSize="16sp"/>
+
+            <!-- Build Date Value -->
+            <TextView
+                android:id="@+id/build_date_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="2025-01-01 09:00:00"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="32dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

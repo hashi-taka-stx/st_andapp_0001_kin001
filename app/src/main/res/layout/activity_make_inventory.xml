@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_inventory_read"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MakeInventoryActivity">
+
+    <!-- 棚卸モード画面レイアウト -->
+    <LinearLayout
+        android:id="@+id/inventory_read"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- ツールバー -->
+        <LinearLayout
+            android:id="@+id/fixed_header_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 共通ツールバーの読み込み -->
+            <include
+                android:id="@+id/included_toolbar"
+                layout="@layout/toolbar_header" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/navigation_bar_spacer"
+                android:orientation="vertical">
+                <!-- 在庫数カウントのLinearLayout -->
+                <LinearLayout
+                    android:id="@+id/linearLayout_inventory_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:orientation="vertical">
+                    <!-- 帳簿在庫数カウント -->
+                    <LinearLayout
+                        android:id="@+id/linearLayout_inventory_count_book"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/layout_activity_make_inventory_book_inventory_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/layout_activity_make_inventory_book_inventory_label"
+                        android:textSize="20sp" />
+                    <TextView
+                        android:id="@+id/layout_activity_make_inventory_book_inventory_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp" />
+                    </LinearLayout>
+                    <!-- 読取在庫数カウント -->
+                    <LinearLayout
+                        android:id="@+id/linearLayout_inventory_count_physical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/layout_activity_make_inventory_physical_inventory_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/layout_activity_make_inventory_physical_inventory_label"
+                            android:textSize="20sp" />
+                        <TextView
+                            android:id="@+id/layout_activity_make_inventory_physical_inventory_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 棚卸ボタンの LinearLayout -->
+                <RelativeLayout
+                    android:id="@+id/relativeLayout_make_inventory_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    >
+
+                    <Button
+                        android:id="@+id/button_activity_make_inventory_start_read"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:padding="16sp"
+                        android:text="@string/button_activity_make_inventory_start_read"
+                        android:textSize="20sp" />
+                    <Button
+                        android:id="@+id/button_activity_make_inventory_finish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:padding="16sp"
+                        android:text="@string/button_activity_make_inventory_finish"
+                        android:textSize="20sp" />
+                    <Button
+                        android:id="@+id/button_activity_make_inventory_stop_read"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:padding="16sp"
+                        android:text="@string/button_activity_make_inventory_stop_read"
+                        android:textSize="20sp" />
+                </RelativeLayout>
+            <!-- 在庫一覧 -->
+            <ListView
+                android:id="@+id/list_view_read_inventory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="0dp" />
+            </LinearLayout>
+            <!-- ProgressBar -->
+            <ProgressBar
+                android:id="@+id/progressBarInventory"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="gone" />
+            <!-- ナビゲーションバーのためのダミースペーサー -->
+            <Space
+                android:id="@id/navigation_bar_spacer"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignParentBottom="true" />
+       </RelativeLayout>
+    </LinearLayout>
+
+    <!-- ナビゲーションドロワー -->
+    <FrameLayout
+        android:id="@+id/drawer_layout"
+        tools:visibility="gone"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include layout="@layout/nav_drawer" />
+    </FrameLayout>
+</FrameLayout>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- MainActivityのメッセージ -->
+    <string name="main_activity_dialog_string_errorcode">エラーコード:</string>
+    <string name="main_activity_dialog_permission_denied_title">権限が必要です</string>
+    <string name="main_activity_dialog_permission_denied">このアプリの全機能を利用するには、要求された権限を許可してください。アプリを再起動するか、設定画面から権限を許可してください。"</string>
+    <string name="main_activity_dialog_permission_denied_button_goto">設定画面へ</string>
+    <string name="main_activity_dialog_permission_denied_button_close">閉じる</string>
+    <string name="main_activity_dialog_exception_error">初期化中に致命的なエラーが発生しました。</string>
+    <string name="main_activity_database_error">データベース処理でエラーが発生しました。</string>
+    <string name="permission_denied_message">必要な権限が承認されませんでした。アプリの機能を利用するには権限が必要です。</string>
+
+    <!-- FileManageActivityのメッセージ -->
+    <string name="csv_toast_format_correct">CSVフォーマットは正常です。</string>
+    <string name="csv_toast_empty_or_no_data">CSVファイルが空か、有効なデータ行が含まれていません。</string>
+    <string name="csv_toast_format_error">CSVフォーマットエラー。</string>
+    <string name="csv_toast_error_reading_file">CSVファイルの読み込みまたはチェック中にエラーが発生しました。</string>
+    <string name="csv_toast_output_dir_not_selected">出力先フォルダが選択されていません。</string>
+    <string name="csv_toast_error_creating_file">CSVファイルの作成に失敗しました。</string>
+    <string name="csv_toast_saved_successfully_to">CSVファイルが %s として正常に保存されました。</string>
+    <string name="csv_toast_error_opening_output_stream">出力ストリームを開けませんでした。</string>
+    <string name="csv_toast_error_exporting">CSVエクスポート中にエラーが発生しました。</string>
+    <string name="csv_toast_error_open_file_failure">ファイルを開けませんでした</string>
+    <string name="csv_toast_error_permission_failure">ファイルの権限取得に失敗しました。</string>
+    <string name="csv_toast_error_writing_to_file">ファイルの書き込みに失敗しました。</string>
+    <string name="csv_toast_error_reading_from_file">ファイルの書き込みに失敗しました。</string>
+    <string name="csv_toast_error_IO_exception">ファイル処理中にI/Oエラーが発生しました。</string>
+    <string name="csv_toast_read_error_exception_error">ファイル処理中に予期せぬエラーが発生しました。</string>
+    <string name="csv_toast_output_dir_selected">出力先フォルダが選択されました。:%s</string>
+    <string name="csv_toast_output_dir_permission_failure">書き出し先フォルダの権限取得に失敗しました。</string>
+    <string name="csv_toast_output_dir_exception_error">書き出し先フォルダの処理中にエラーが発生しました。</string>
+    <string name="output_dir_not_selected_for_permission">権限が付与されましたが、出力先フォルダが未選択のため処理を中断しました。</string>
+    <string name="permission_denied_write_external_storage">外部ストレージへの書き込み権限が拒否されました。ファイルのエクスポートはできません。</string>
+    <string name="csv_import_error_empty_or_no_header">CSVフォーマットの異常でファイルの読込に失敗しました。</string>
+
+    <!-- ProductLstAActivityのメッセージ -->
+    <string name="title_product_list_specific">置き場:</string>
+    <string name="title_product_list_all">商品一覧 (全置き場)</string>
+    <string name="toast_error_creating_product_table">商品テーブルの準備に失敗しました: %s</string> <!-- %s はエラーメッセージ -->
+    <string name="error_loading_products">商品の読み込みに失敗しました。</string>
+    <string name="product_list_activity_error_get_item_data">商品データの取得に失敗しました: %s</string> <!-- %s はエラーメッセージ -->
+    <string name="empty_product_list_no_master_data">表示できる商品データがありません。(マスタ未登録の可能性があります)</string>
+    <string name="empty_product_list_message">「%s」に該当する商品はありません。</string> <!-- %s は置き場名 -->
+    <string name="location_name_all_for_message">全置き場</string>
+
+    <!-- ItemDetailActivityのメッセージ -->
+    <string name="dialog_title_error">エラー</string>
+    <string name="error_message_id_missing">IDが指定されていません。前の画面に戻り、再度操作してください。</string>
+    <string name="error_message_item_not_found">指定されたID [%s] の商品情報が見つかりませんでした。</string>
+    <!-- Boolean display values -->
+    <string name="boolean_true_display">有り</string>
+    <string name="boolean_false_display">無し</string>
+    <!-- Default value for unavailable data -->
+    <string name="default_not_available">N/A</string> <!-- または "不明", "データなし" など -->
+
+    <!-- ConnectionActivityのメッセージ -->
+    <!-- Connection Status & Messages -->
+    <string name="connected_to_device">リーダーに接続しました。</string>
+    <string name="disconnected_from_device">リーダーから切断しました。</string>
+    <string name="connecting_to_device">リーダーに接続中です…</string>
+    <string name="disconnecting_from_device">リーダーから切断中です…</string>
+    <string name="connection_error_occurred">接続エラーが発生しました。</string>
+    <string name="operation_in_progress">処理中です。しばらくお待ちください。</string>
+    <!-- MAC Address Related -->
+    <string name="invalid_mac_address_format">無効なMACアドレス形式です: %s</string>
+    <string name="mac_list_loaded">%d件のMACアドレスを読み込みました。</string>
+    <string name="empty_mac_address_result">スキャン結果が空でした。</string>
+    <string name="error_loading_mac_list">MACアドレスリストの読み込みに失敗しました。</string>
+    <!-- Buttons -->
+    <string name="button_connect">接続</string>
+    <string name="button_disconnect">切断</string>
+    <string name="button_connecting">接続中…</string>
+    <string name="button_disconnecting">切断中…</string>
+    <string name="button_unavailable">利用不可</string>
+    <!-- QRScan -->
+    <string name="QR_scan_result_failure">スキャンに失敗しました。</string>
+    <string name="QR_scan_result_empty">スキャン結果が空でした。</string>
+    <string name="QR_scan_result_invalid">無効なMACアドレス形式です: %s</string>
+    <!-- CameraActivity -->
+    <string name="camera_activity_error_start_error">QRリーダーの起動に失敗しました。</string>
+    <string name="camera_activity_error_unavailable">スキャン機能は利用できませんでした。</string>
+    <string name="camera_activity_error_dialog_title">スキャナが見つかりません</string>
+    <string name="camera_activity_error_dialog_text">この機能を利用するには、QRコードスキャナアプリが必要です。ダウンロードしますか？</string>
+    <string name="camera_activity_scan_prompt">QRコードを枠内に表示してください</string>
+    <string name="camera_activity_permission_denied">カメラの使用が許可されませんでした。QRコードをスキャンするには、設定からカメラの権限を許可してください。</string>
+
+    <!-- MakeInventoryActivity -->
+    <string name="make_inventory_activity_initialize_inventory_failure">棚卸データの初期化に失敗しました。再度棚卸対象を選択してください。</string>
+    <string name="make_inventory_activity_now_loading">ロード中...</string>
+    <string name="make_inventory_activity_no_data">棚卸対象リストがありません。</string>
+    <string name="make_inventory_activity_on_back_pressed">カウントを中断しました。</string>
+    <string name="make_inventory_activity_navigation_menu_selected">棚卸読み取りを停止し、画面遷移します。</string>
+    <!-- RsultInventoryActivity -->
+    <string name="result_inventory_activity_confirm_title">棚卸確定の確認</string>
+    <string name="result_inventory_activity_confirm_text">現在の棚卸結果を保存しますか？</string>
+    <string name="result_inventory_activity_cancel_title">棚卸取消の確認</string>
+    <string name="result_inventory_activity_cancel_text">現在の棚卸データを破棄し、棚卸メニューに戻りますか？</string>
+    <string name="result_inventory_activity_confirm_empty_list">確定する棚卸データがありません。</string>
+    <string name="result_inventory_activity_save_folder_open_failure">フォルダ選択画面を開けませんでした。</string>
+    <string name="result_inventory_activity_save_folder_permmision_failure">選択されたフォルダへのアクセス権限を取得できませんでした。</string>
+    <string name="result_inventory_activity_save_folder_permmision_canceled">フォルダ選択がキャンセルされました。CSVは保存されません。</string>
+    <string name="result_inventory_activity_write_folder_failure">指定されたフォルダに書き込めません。</string>
+    <string name="result_inventory_activity_create_file_failure">CSVファイルの作成に失敗しました。</string>
+    <string name="result_inventory_activity_save_finished_title">更新完了</string>
+    <string name="result_inventory_activity_save_finished_text">棚卸結果をデータベースに保存しました。</string>
+    <string name="result_inventory_activity_save_failure_title">更新失敗</string>
+    <string name="result_inventory_activity_save_failure_text">棚卸結果のデータベース保存に失敗しました。</string>
+
+
+    <!-- For SerialNumberListActivity Extras (if they need a "default" or "all" string representation) -->
+    <string name="location_name_all">全置き場</string> <!-- SerialNumberListActivityに渡す置き場名がnullの場合など -->
+
+    <!-- SdkManager.kt -->
+    <string name="message_connectstate_offline">デバイスはオフラインです。接続を確認してください。</string>
+    <string name="message_connectstate_none">デバイスとの通信状態が不明です。</string>
+    <string name="message_device_disconnected">デバイスが切断されました。</string>
+    <string name="message_device_released">デバイスが解放されました。</string>
+    <string name="message_unexpected_connection_state">Unexpected connection state: %1$s. Device: %2$s</string>
+    <string name="message_error_connected_no_address">Connection established, but could not retrieve the device address. Please try reconnecting.</string>
+    <string name="message_error_set_data_event_enabled_after_start">Failed to enable data event after starting read tags. Operation may not work as expected.</string>
+    <string name="message_error_set_data_event_enabled_reenable">Failed to re-enable data event after receiving data. Subsequent data may not be received.</string>
+    <!-- Error Messages -->
+    <string name="title_error">エラー</string>
+    <string name="message_error_unknown_operation">不明な操作</string>
+    <string name="dialog_SDK_initialize_failure">SDKの初期化に失敗しました。アプリを再起動してください。</string>
+    <string name="sdk_init_error_getInstance_null">SDKインスタンスの取得に失敗しました。</string>
+    <string name="message_error_sdk_open_error">SDKのオープンに失敗しました。全てのアプリを終了してからアプリを起動してください。</string>
+    <string name="message_error_no_device_name">デバイス名の取得に失敗しました。</string>
+    <string name="sdk_init_exception">SDK初期化中に予期せぬエラーが発生しました。</string>
+    <string name="rfid_reader_connected">RFIDリーダーに接続しました: %1$s</string>
+    <string name="rfid_reader_connection_error">RFIDリーダーとの接続に失敗しました。</string>
+    <string name="rfid_reader_disconnected">RFIDリーダーから切断されました。</string>
+    <string name="rfid_reader_noto_connected">RFIDリーダーに接続されていません。</string>"
+    <string name="please_connect_rfid_reader">RFIDリーダーに接続してください。</string>
+    <string name="message_error_device_open">デバイス「%1$s」のオープンに失敗しました。</string>
+    <string name="message_error_driver_not_opened">デバイス「%1$s」のドライバをまだオープンしていません。最初にopenDriver()を呼出してください。</string>
+    <string name="message_error_device_release">デバイス「%1$s」のリリースに失敗しました。</string>
+    <string name="message_error_device_close">デバイス「%1$s」のクローズに失敗しました。</string>
+    <string name="message_error_disconnect_exception">デバイス「%1$s」の切断で例外が発生しました。</string>
+    <string name="message_processfailed_open">デバイスのオープンに失敗しました。</string>
+    <string name="message_processfailed_getBatteryLevel">バッテリー残量の取得に失敗しました。</string>
+    <string name="message_processfailed_getFirmwareVer">ファームウェアバージョンの取得に失敗しました。</string>
+    <string name="message_error_start_bluetooth_discovery_init">Bluetoothdiscoveryの開始に失敗しました。</string>
+    <string name="message_error_parse_firmware">ファームウェアバージョンの解析に失敗しました。</string>
+    <string name="message_error_parse_firmware_generic">ファームウェアバージョンの解析中に例外が発生しました。</string>
+    <string name="message_error_set_sdk_options">SDKログオプションの設定に失敗しました。</string>
+    <string name="message_error_device_claim">デバイス「%1$s」の排他に失敗しました。</string>
+    <string name="message_error_device_enable">デバイスの有効化に失敗しました。</string>
+    <string name="message_error_connect_exception">デバイス「%1$s」接続処理中に例外が発生しました</string>
+    <string name="message_error_send_get_battery">バッテリー残量取得コマンドの送信に失敗しました。</string>
+    <string name="message_error_send_get_firmware">ファームウェアバージョン取得コマンドの送信に失敗しました。</string>
+    <string name="message_error_get_battery_callback">バッテリーレベル取得コールバック処理に失敗しました。</string>
+    <string name="message_error_start_read_tags_async">RFID読み取り開始処理に失敗しました。result:%d,Ext:%d</string>
+    <string name="message_error_stop_read_tags_async">RFID読み取り停止処理に失敗しました。result:%d,Ext:%d</string>
+    <string name="message_error_stop_read_tags_sync">タグ読込停止の処理に失敗しました。</string>
+    <string name="message_error_stop_read_tags_exception">デバイス「%1$s」のタグ読込停止処理で例外が発生しました。</string>
+
+    <!-- SettingsActivity.kt -->
+    <string name="settings_activity_dialog_cancel">設定を反映してから終了しますか？</string>
+    <string name="settings_activity_toast_invalid_MACAdress">有効な接続先が選択されていません。</string>
+    <string name="settings_activity_dialog_applying_HST_settings_title">設定適用中</string>
+    <string name="settings_activity_dialog_applying_HST_settings_text">リーダーに設定を適用しています...</string>
+    <string name="settings_activity_dialog_result_title">設定適用結果</string>
+    <string name="settings_activity_dialog_result_text_failure">一部の設定項目でエラーが発生しました:\n%s</string>
+    <string name="settings_activity_dialog_result_text_success">設定が正常に適用されました。</string>
+
+    <!-- Button Texts -->
+    <string name="dialog_confirm">確認</string>
+    <string name="btn_txt_ok">OK</string>
+    <string name="btn_txt_cancel">キャンセル</string>
+    <string name="btn_txt_yes">はい</string>
+    <string name="btn_txt_no">いいえ</string>
+
+    <!-- Other UI Texts -->
+    <string name="label_battery_level">バッテリー: %1$d%%</string>
+    <string name="label_firmware_version">ファームウェア: %1$s</string>
+    <string name="status_connecting">接続中...</string>
+    <string name="status_connected_to">接続済み: %1$s</string>
+    <string name="status_disconnected">未接続</string>
+    <string name="status_error">エラー</string>
+
+</resources>

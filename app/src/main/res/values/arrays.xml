@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="nav_menu">
+        <item>Files</item>
+        <item>Connection</item>
+        <item>Settings</item>
+    </string-array>
+    <array name="item_id">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+    </array>
+    <array name="item_menu">
+        <item>マプ・カベルネ・ソーヴィニヨン</item>
+        <item>ヴィスタフロー・マルベック・サンジョヴェーゼ</item>
+        <item>エスクード・ロホ・グラン・レゼルヴァ</item>
+        <item>コレクシオン・デ・ロス・アンデス・マルベック</item>
+        <item>パソ・ア・パソ カベルネ・ソーヴィニヨン</item>
+        <item>ゴイマヨール</item>
+        <item>ヴィニウス・オーガニック カベルネ・ソーヴィニヨン・ メルロ</item>
+        <item>モンテプルチアーノ・ダブルッツォ</item>
+        <item>ミュゼドゥヴァン　松本平ブラッククイーン</item>
+        <item>モンテス・クラシック・シリーズ・カベルネ・ソーヴィニヨン</item>
+        <item>サン・ヴァレンティン・ガルナッチャ</item>
+        <item>シャトー・ジレ・ルージュ</item>
+        <item>イル・プリンチペ</item>
+        <item>モンテス・アルファ・カベルネ・ソーヴィニヨン</item>
+        <item>クラレンドル・ルージュ</item>
+        <item>サングレ・デ・トロ オリジナル</item>
+        <item>ネプリカ・ネグロアマーロ</item>
+        <item>ヴィラ・アンティノリ・ロッソ</item>
+        <item>カイケン・エステート・カベルネ・ソーヴィニヨン</item>
+        <item>サンタ・ディグナ・カベルネ・ソーヴィニヨン グラン・レゼルヴァ</item>
+        <item>プロジェクト・クワトロ・ティント</item>
+        <item>キュソラ シラー・メルロ</item>
+        <item>シャルム・シャンベルタン グラン・クリュ</item>
+    </array>
+    <array name="item_vintage">
+        <item>2022</item>
+        <item>2022</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2021</item>
+        <item>2023</item>
+        <item>2021</item>
+        <item>2020</item>
+        <item>2022</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2021</item>
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2022</item>
+        <item>2021</item>
+        <item>2022</item>
+    </array>
+    <array name="item_winery">
+        <item>バロン・フィリップ・ド・ロスチャイルド・マイポ・チリ</item>
+        <item>ボデガ・ノートン</item>
+        <item>バロン・フィリップ・ド・ロスチャイルド・マイポ・チリ</item>
+        <item>ボデガ・ノートン</item>
+        <item>ボデガ・ノートン</item>
+        <item>カンティーナ・トレゼンタ</item>
+        <item>ジャン・クロード・マス</item>
+        <item>グラン・サッソ</item>
+        <item>アルプスワイン</item>
+        <item>モンテス</item>
+        <item>トーレス</item>
+        <item>シャト・ジレ</item>
+        <item>ラッロ</item>
+        <item>モンテス</item>
+        <item>クラレンドル (クラレンス・ディロン)</item>
+        <item>トーレス</item>
+        <item>トルマレスカ (アンティノリ)</item>
+        <item>ヴィラ・アンティノリ (アンティノリ)</item>
+        <item>カイケン</item>
+        <item>ミゲル・トーレス・チリ</item>
+        <item>クロ・モンブラン</item>
+        <item>カルーソ・エ・ミニーニ</item>
+        <item>ルシアン・ル・モワンヌ</item>
+    </array>
+    <array name="item_country">
+        <item>チリ</item>
+        <item>アルゼンチン</item>
+        <item>チリ</item>
+        <item>アルゼンチン</item>
+        <item>アルゼンチン</item>
+        <item>イタリア</item>
+        <item>フランス</item>
+        <item>イタリア</item>
+        <item>日本</item>
+        <item>チリ</item>
+        <item>スペイン</item>
+        <item>フランス</item>
+        <item>イタリア</item>
+        <item>チリ</item>
+        <item>フランス</item>
+        <item>スペイン</item>
+        <item>イタリア</item>
+        <item>イタリア</item>
+        <item>アルゼンチン</item>
+        <item>チリ</item>
+        <item>スペイン</item>
+        <item>イタリア</item>
+        <item>フランス</item>
+    </array>
+    <array name="item_area">
+        <item>セントラル・ヴァレー</item>
+        <item>メンドーサ</item>
+        <item>セントラル・ヴァレー</item>
+        <item>メンドーサ</item>
+        <item>メンドーサ</item>
+        <item>サルデーニャ</item>
+        <item>ラングドック・ルーション</item>
+        <item>アブルッツォ</item>
+        <item>長野県</item>
+        <item>セントラル・ヴァレー</item>
+        <item>カタルーニャ</item>
+        <item>ボルドー</item>
+        <item>シチリア</item>
+        <item>セントラル・ヴァレー</item>
+        <item>ボルドー</item>
+        <item>カタルーニャ</item>
+        <item>プーリア</item>
+        <item>トスカーナ</item>
+        <item>メンドーサ</item>
+        <item>セントラル・ヴァレー</item>
+        <item>カタルーニャ</item>
+        <item>シチリア</item>
+        <item>ブルゴーニュ</item>
+    </array>
+    <array name="item_village">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>コート・ド・ニュイ</item>
+    </array>
+    <array name="item_price">
+        <item>1430</item>
+        <item>1430</item>
+        <item>1485</item>
+        <item>1575</item>
+        <item>1575</item>
+        <item>1610</item>
+        <item>1670</item>
+        <item>1750</item>
+        <item>1800</item>
+        <item>1980</item>
+        <item>1980</item>
+        <item>1980</item>
+        <item>2100</item>
+        <item>2100</item>
+        <item>2100</item>
+        <item>2100</item>
+        <item>2100</item>
+        <item>2250</item>
+        <item>2340</item>
+        <item>2400</item>
+        <item>2700</item>
+        <item>3100</item>
+        <item>85800</item>
+    </array>
+    <array name="item_price_unit">
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+        <item>円</item>
+    </array>
+    <array name="item_rfid_major">
+        <item>006487D1400BB80003</item>
+        <item>006487D1400CB20004</item>
+        <item>006487D1400ABE0005</item>
+        <item>006487D1400ABE0006</item>
+        <item>006487D1400ABE0007</item>
+        <item>006487D1400ABE0008</item>
+        <item>006487D1400ABE000A</item>
+        <item>006487D1400ABE000B</item>
+        <item>006487D1400ABE000C</item>
+        <item>006487D1400ABE000D</item>
+        <item>006487D1400ABE000E</item>
+        <item>006487D1400ABE000F</item>
+        <item>006487D1400ABE0010</item>
+        <item>006487D1400ABE0011</item>
+        <item>006487D1400ABE0012</item>
+        <item>006487D1400ABE0013</item>
+        <item>006487D1400ABE0014</item>
+        <item>006487D1400ABE0015</item>
+        <item>006487D1400ABE0016</item>
+        <item>006487D1400ABE0017</item>
+        <item>006487D1400ABE0018</item>
+        <item>006487D1400ABE0019</item>
+        <item>006487D1400ABE001A</item>
+    </array>
+    <array name="item_barcode_no">
+        <item>4 902777 026107</item>
+        <item>4 902777 026108</item>
+        <item>4 902777 026109</item>
+        <item>4 902777 026110</item>
+        <item>4 902777 026111</item>
+        <item>4 902777 026112</item>
+        <item>4 902777 026113</item>
+        <item>4 902777 026114</item>
+        <item>4 902777 026115</item>
+        <item>4 902777 026116</item>
+        <item>4 902777 026117</item>
+        <item>4 902777 026118</item>
+        <item>4 902777 026119</item>
+        <item>4 902777 026120</item>
+        <item>4 902777 026121</item>
+        <item>4 902777 026122</item>
+        <item>4 902777 026123</item>
+        <item>4 902777 026124</item>
+        <item>4 902777 026125</item>
+        <item>4 902777 026126</item>
+        <item>4 902777 026127</item>
+        <item>4 902777 026128</item>
+        <item>4 902777 026129</item>
+    </array>
+    <string-array name="item_book_inventory">
+        <item>2</item>
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+        <item>6</item>
+        <item>10</item>
+        <item>20</item>
+        <item>32</item>
+        <item>11</item>
+        <item>5</item>
+        <item>20</item>
+        <item>18</item>
+        <item>13</item>
+        <item>16</item>
+        <item>12</item>
+        <item>10</item>
+        <item>11</item>
+        <item>14</item>
+        <item>17</item>
+        <item>20</item>
+        <item>19</item>
+        <item>22</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="item_physical_inventory">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+    </string-array>
+</resources>

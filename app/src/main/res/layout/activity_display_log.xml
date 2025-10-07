@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DisplayLogActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+        <!-- タイトルの行 -->
+        <LinearLayout
+            android:id="@+id/toolbar_header_title_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="30dp"
+            android:paddingBottom="12dp"
+            android:elevation="4dp"
+            android:background="?attr/colorPrimary">
+            <!-- 位置調整用のボタン(不可視) -->
+            <ImageButton
+                android:id="@+id/toolbar_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/toolbar_back_button_description"
+                android:src="@drawable/ic_back"
+                android:visibility="invisible"
+                app:tint="@color/white"/>
+            <!-- ツールバータイトル (中央、伸縮可能) -->
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center_horizontal"
+                android:text="@string/activity_display_log"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <!-- クローズボタン (右端に配置) -->
+            <ImageButton
+                android:id="@+id/toolbar_close_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_close"
+                android:scaleX="1.4"
+                android:scaleY="1.4"
+                app:tint="@color/white"/>
+        </LinearLayout>
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        <ListView
+            android:id="@+id/log_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/navigation_bar_spacer"
+            android:padding="8dp"
+            android:textSize="10sp"
+            android:clipToPadding="false"
+            />
+        </android.support.v4.widget.SwipeRefreshLayout>
+        <!-- ナビゲーションバーのためのダミースペーサー -->
+        <Space
+            android:id="@id/navigation_bar_spacer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentBottom="true" />
+    </LinearLayout>
+</RelativeLayout>
