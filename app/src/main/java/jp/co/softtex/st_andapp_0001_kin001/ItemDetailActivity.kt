@@ -17,11 +17,10 @@ class ItemDetailActivity : BasePaddedActivity(), SdkManagerListener, NavigationH
     /* ナビゲーションバー */
     private lateinit var navigationHelper: NavigationHelper // ヘルパーのインスタンス
 
-    private lateinit var tvProductCode: TextView
-    private lateinit var tvOrderDatetime: TextView
+    private lateinit var tvBarcodeNo: TextView
+    private lateinit var tvStockDate: TextView
     private lateinit var tvOrderLocation: TextView
-    private lateinit var tvProductName1: TextView
-    private lateinit var tvProductName2: TextView
+    private lateinit var tvProductName: TextView
     private lateinit var tvProductEpc: TextView
     private lateinit var tvBookInventory: TextView
     private lateinit var tvPhysicalInventory: TextView
@@ -133,11 +132,10 @@ class ItemDetailActivity : BasePaddedActivity(), SdkManagerListener, NavigationH
     private fun setView() {
         setContentView(R.layout.activity_item_detail)
 
-        tvProductCode = findViewById(R.id.layout_item_detail_textview_product_code)
-        tvOrderDatetime = findViewById(R.id.layout_item_detail_textview_order_datetime)
+        tvBarcodeNo = findViewById(R.id.layout_item_detail_textview_barcode_no)
+        tvStockDate = findViewById(R.id.layout_item_detail_textview_stock_date)
         tvOrderLocation = findViewById(R.id.layout_item_detail_textview_order_location)
-        tvProductName1 = findViewById(R.id.layout_item_detail_textview_product_name1)
-        tvProductName2 = findViewById(R.id.layout_item_detail_textview_product_name2)
+        tvProductName = findViewById(R.id.layout_item_detail_textview_product_name)
         tvProductEpc = findViewById(R.id.layout_item_detail_textview_product_epc)
         tvBookInventory = findViewById(R.id.layout_item_detail_textview_book_exist)
         tvPhysicalInventory = findViewById(R.id.layout_item_detail_textview_physical_exist)
@@ -412,11 +410,10 @@ class ItemDetailActivity : BasePaddedActivity(), SdkManagerListener, NavigationH
         // データをTextViewにセット (以降のロジックは変更なし)
         val defaultNa = getString(R.string.default_not_available)
 
-        tvProductCode.text = itemDetails[getString(DatabaseContract.MasterColumn.PRODUCT_CODE.columnNameResId)]?.toString() ?: defaultNa
-        tvOrderDatetime.text = itemDetails[getString(DatabaseContract.MasterColumn.ORDER_DATETIME.columnNameResId)]?.toString() ?: defaultNa
+        tvBarcodeNo.text = itemDetails[getString(DatabaseContract.MasterColumn.BARCODE_NO.columnNameResId)]?.toString() ?: defaultNa
+        tvStockDate.text = itemDetails[getString(DatabaseContract.MasterColumn.STOCK_DATE.columnNameResId)]?.toString() ?: defaultNa
         tvOrderLocation.text = itemDetails[getString(DatabaseContract.MasterColumn.LOCATION.columnNameResId)]?.toString() ?: defaultNa
-        tvProductName1.text = itemDetails[getString(DatabaseContract.MasterColumn.PRODUCT_NAME1.columnNameResId)]?.toString() ?: defaultNa
-        tvProductName2.text = itemDetails[getString(DatabaseContract.MasterColumn.PRODUCT_NAME2.columnNameResId)]?.toString() ?: defaultNa
+        tvProductName.text = itemDetails[getString(DatabaseContract.MasterColumn.PRODUCT_NAME.columnNameResId)]?.toString() ?: defaultNa
         tvBookInventory.text = itemDetails[getString(DatabaseContract.MasterColumn.BOOK_INVENTORY.columnNameResId)]?.toString() ?: defaultNa
         tvPhysicalInventory.text = itemDetails[getString(DatabaseContract.MasterColumn.PHYSICAL_INVENTORY.columnNameResId)]?.toString() ?: defaultNa
         tvProductEpc.text = itemDetails[getString(DatabaseContract.MasterColumn.PRODUCT_EPC.columnNameResId)]?.toString() ?: defaultNa

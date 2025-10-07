@@ -271,11 +271,10 @@ class ResultInventoryActivity :  BasePaddedActivity(), SdkManagerListener, Navig
     private fun syncCurrentUiDisplayListFromInventoryProgressList() {
         currentUiDisplayList.clear()
         val context = applicationContext
-        val productCodeKey = DatabaseContract.MasterColumn.PRODUCT_CODE.getColumnName(context)
+        val barcodeNoKey = DatabaseContract.MasterColumn.BARCODE_NO.getColumnName(context)
         val locationKey = DatabaseContract.MasterColumn.LOCATION.getColumnName(context)
-        val orderDatetimeKey = DatabaseContract.MasterColumn.ORDER_DATETIME.getColumnName(context)
-        val name1Key = DatabaseContract.MasterColumn.PRODUCT_NAME1.getColumnName(context)
-        val name2Key = DatabaseContract.MasterColumn.PRODUCT_NAME2.getColumnName(context)
+        val stockDateKey = DatabaseContract.MasterColumn.STOCK_DATE.getColumnName(context)
+        val nameKey = DatabaseContract.MasterColumn.PRODUCT_NAME.getColumnName(context)
         val bookInvKey = DatabaseContract.MasterColumn.BOOK_INVENTORY.getColumnName(context)
         val physicalInvKey = DatabaseContract.MasterColumn.PHYSICAL_INVENTORY.getColumnName(context)
         val epcKey = DatabaseContract.MasterColumn.PRODUCT_EPC.getColumnName(context)
@@ -284,11 +283,10 @@ class ResultInventoryActivity :  BasePaddedActivity(), SdkManagerListener, Navig
         MainActivity.inventory_progress_list.forEach { mapItem ->
             val epc_upper = (mapItem[epcKey] as? String)?.uppercase(Locale.getDefault())
             val displayItem = ProductListActivity.ProductDisplayItem(
-                product_code = mapItem[productCodeKey] as? String,
+                barcode_no = mapItem[barcodeNoKey] as? String,
                 location = mapItem[locationKey] as? String,
-                order_datetime = mapItem[orderDatetimeKey] as? String,
-                product_name1 = mapItem[name1Key] as? String,
-                product_name2 = mapItem[name2Key] as? String,
+                stock_date = mapItem[stockDateKey] as? String,
+                product_name = mapItem[nameKey] as? String,
                 book_inventory = mapItem[bookInvKey] as? String, // ProductDisplayItem は String を期待
                 physical_inventory = mapItem[physicalInvKey] as? String, // ProductDisplayItem は String を期待
                 product_epc = epc_upper,
@@ -701,11 +699,10 @@ class ResultInventoryActivity :  BasePaddedActivity(), SdkManagerListener, Navig
                 } else {
                     // --- 4. データが見つからなかった場合：新たなデータとしてMasterテーブルにインサート ---
                     val contentValuesForInsert = ContentValues().apply {
-                        put(DatabaseContract.MasterColumn.PRODUCT_CODE.getColumnName(contextForDb), progressItem[DatabaseContract.MasterColumn.PRODUCT_CODE.getColumnName(contextForDb)] as? String)
-                        put(DatabaseContract.MasterColumn.ORDER_DATETIME.getColumnName(contextForDb), progressItem[DatabaseContract.MasterColumn.ORDER_DATETIME.getColumnName(contextForDb)] as? String)
+                        put(DatabaseContract.MasterColumn.BARCODE_NO.getColumnName(contextForDb), progressItem[DatabaseContract.MasterColumn.BARCODE_NO.getColumnName(contextForDb)] as? String)
+                        put(DatabaseContract.MasterColumn.STOCK_DATE.getColumnName(contextForDb), progressItem[DatabaseContract.MasterColumn.STOCK_DATE.getColumnName(contextForDb)] as? String)
                         put(DatabaseContract.MasterColumn.LOCATION.getColumnName(contextForDb), location ?: "")
-                        put(DatabaseContract.MasterColumn.PRODUCT_NAME1.getColumnName(contextForDb), progressItem[DatabaseContract.MasterColumn.PRODUCT_NAME1.getColumnName(contextForDb)] as? String)
-                        put(DatabaseContract.MasterColumn.PRODUCT_NAME2.getColumnName(contextForDb), progressItem[DatabaseContract.MasterColumn.PRODUCT_NAME2.getColumnName(contextForDb)] as? String)
+                        put(DatabaseContract.MasterColumn.PRODUCT_NAME.getColumnName(contextForDb), progressItem[DatabaseContract.MasterColumn.PRODUCT_NAME.getColumnName(contextForDb)] as? String)
                         val bookInventoryFromProgress = progressItem[DatabaseContract.MasterColumn.BOOK_INVENTORY.getColumnName(contextForDb)] as? Int ?: 0
                         put(DatabaseContract.MasterColumn.BOOK_INVENTORY.getColumnName(contextForDb), bookInventoryFromProgress.toLong())
                         put(DatabaseContract.MasterColumn.PHYSICAL_INVENTORY.getColumnName(contextForDb), physicalInventoryFromProgress.toLong())

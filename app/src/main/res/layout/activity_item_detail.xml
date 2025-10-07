@@ -45,42 +45,42 @@
                     android:layout_marginBottom="12sp"
                     android:orientation="horizontal">
                     <TextView
-                        android:id="@+id/layout_item_detail_textview_product_code_text"
+                        android:id="@+id/layout_item_detail_textview_barcode_no_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
-                        android:text="@string/layout_activity_item_detail_product_code_text"
+                        android:text="@string/layout_activity_item_detail_barcode_no_text"
                         android:textAlignment="viewStart" />
                     <TextView
-                        android:id="@+id/layout_item_detail_textview_product_code"
+                        android:id="@+id/layout_item_detail_textview_barcode_no"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
-                        android:text="@string/layout_activity_item_detail_product_code_default"
+                        android:text="@string/layout_activity_item_detail_barcode_no_default"
                         android:textIsSelectable="true"
                         android:textAlignment="viewStart" />
                 </LinearLayout>
 
                 <!-- 発行日時 -->
                 <LinearLayout
-                    android:id="@+id/linearLayout_detail_order_datetime"
+                    android:id="@+id/linearLayout_detail_stock_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12sp"
                     android:orientation="horizontal">
                     <TextView
-                        android:id="@+id/layout_item_detail_textview_order_datetime_text"
+                        android:id="@+id/layout_item_detail_textview_stock_date_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
-                        android:text="@string/layout_activity_item_detail_order_datetime_text"
+                        android:text="@string/layout_activity_item_detail_stock_date_text"
                         android:textAlignment="viewStart" />
                     <TextView
-                        android:id="@+id/layout_item_detail_textview_order_datetime"
+                        android:id="@+id/layout_item_detail_textview_stock_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
-                        android:text="@string/layout_activity_item_detail_order_datetime_default"
+                        android:text="@string/layout_activity_item_detail_stock_date_default"
                         android:textIsSelectable="true"
                         android:textAlignment="viewStart" />
                 </LinearLayout>
@@ -116,20 +116,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <TextView
-                        android:id="@+id/layout_item_detail_textview_product_name1"
+                        android:id="@+id/layout_item_detail_textview_product_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
-                        android:text="@string/layout_activity_item_detail_name1_default"
-                        android:textIsSelectable="true"
-                        android:layout_marginBottom="12sp"
-                        android:textAlignment="viewStart" />
-                    <TextView
-                        android:id="@+id/layout_item_detail_textview_product_name2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:text="@string/layout_activity_item_detail_name2_default"
+                        android:text="@string/layout_activity_item_detail_name_default"
                         android:textIsSelectable="true"
                         android:layout_marginBottom="12sp"
                         android:textAlignment="viewStart" />

@@ -9,11 +9,10 @@
     <string name="default_file_type">text/csv</string>
 
     <!-- CSV Header Names -->
-    <string name="csv_header_product_code">商品コード</string>
-    <string name="csv_header_order_datetime">発注年月日</string>
+    <string name="csv_header_barcode_no">ﾊﾞｰｺｰﾄﾞNo</string>
+    <string name="csv_header_stock_date">入荷日</string>
     <string name="csv_header_location">置き場</string>
-    <string name="csv_header_product_name1">商品名１</string>
-    <string name="csv_header_product_name2">商品名２</string>
+    <string name="csv_header_product_name">商品名</string>
     <string name="csv_header_book_inventory">理論在庫数</string>
     <string name="csv_header_physical_inventory">棚卸在庫数</string>
     <string name="csv_header_product_epc">商品EPC</string>
@@ -21,11 +20,10 @@
 
     <!-- Database Column Names (英語表記 - DB内部で使用) -->
     <string name="db_col_id">_id</string>
-    <string name="db_col_product_code">product_code</string>
-    <string name="db_col_order_datetime">order_datetime</string>
+    <string name="db_col_barcode_no">barcode_no</string>
+    <string name="db_col_stock_date">stock_date</string>
     <string name="db_col_location">location</string>
-    <string name="db_col_product_name1">product_name1</string>
-    <string name="db_col_product_name2">product_name2</string>
+    <string name="db_col_product_name">product_name</string>
     <string name="db_col_book_inventory">book_inventory</string>
     <string name="db_col_physical_inventory">physical_inventory</string>
     <string name="db_col_product_epc">product_epc</string>
@@ -34,11 +32,10 @@
     <!-- Defines the order and content of the CSV header row for export. -->
     <!-- Also used by checkCsvFormat to validate imported CSV headers. -->
     <string-array name="csv_master_table_headers">
-        <item>@string/csv_header_product_code</item>
-        <item>@string/csv_header_order_datetime</item>
+        <item>@string/csv_header_barcode_no</item>
+        <item>@string/csv_header_stock_date</item>
         <item>@string/csv_header_location</item>
-        <item>@string/csv_header_product_name1</item>
-        <item>@string/csv_header_product_name2</item>
+        <item>@string/csv_header_product_name</item>
         <item>@string/csv_header_book_inventory</item>
         <item>@string/csv_header_physical_inventory</item>
         <item>@string/csv_header_product_epc</item>

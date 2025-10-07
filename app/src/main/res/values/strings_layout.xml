@@ -58,11 +58,10 @@
     <string name="layout_row_location_default">デフォルトの置き場</string>
     <string name="layout_row_location_all">全ての置き場</string>
     <!-- row_product.xml -->
-    <string name="layout_row_product_code_text">商品コード:</string>
-    <string name="layout_row_product_code_default">2220000</string>
+    <string name="layout_row_barcode_no_text">ﾊﾞｰｺｰﾄﾞNo:</string>
+    <string name="layout_row_barcode_no_default">2220000</string>
     <string name="layout_row_location_text">置き場:</string>
-    <string name="layout_row_product_name1_default">商品名1</string>
-    <string name="layout_row_product_name2_default">商品名2</string>
+    <string name="layout_row_product_name_default">商品名</string>
     <string name="layout_row_product_EPC_text">RFID 商品EPC:</string>
     <string name="layout_row_product_EPC_default">05305295810021E01B000000</string>
     <string name="layout_row_product_book_inventory_text">帳簿在庫</string>
@@ -82,13 +81,12 @@
     <dimen name="layout_activity_product_list_num_autoSizeMinTextSize">8sp</dimen>
     <dimen name="layout_activity_product_list_num_autoSizeMaxTextSize">20sp</dimen>
     <!-- レイアウト -->
-    <string name="layout_activity_item_detail_product_code_text">商品コード:</string>
-    <string name="layout_activity_item_detail_product_code_default">2220000</string>
-    <string name="layout_activity_item_detail_order_datetime_text">発注日時:</string>
-    <string name="layout_activity_item_detail_order_datetime_default">2025/01/01 23:59</string>
+    <string name="layout_activity_item_detail_barcode_no_text">ﾊﾞｰｺｰﾄﾞNo:</string>
+    <string name="layout_activity_item_detail_barcode_no_default">2500000000000</string>
+    <string name="layout_activity_item_detail_stock_date_text">発注日時:</string>
+    <string name="layout_activity_item_detail_stock_date_default">2025/01/01 23:59</string>
     <string name="layout_activity_item_detail_order_location_text">置き場:</string>
-    <string name="layout_activity_item_detail_name1_default">商品名1</string>
-    <string name="layout_activity_item_detail_name2_default">商品名2</string>
+    <string name="layout_activity_item_detail_name_default">商品名</string>
     <string name="layout_activity_item_detail_epc_text">RFID 商品EPC:</string>
     <string name="layout_activity_item_detail_epc_default">05305295810021E01B</string>
     <string name="layout_activity_item_detail_book_inventory_text">帳簿在庫:</string>

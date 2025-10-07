@@ -454,29 +454,26 @@ class MakeInventoryActivity : BasePaddedActivity(), SdkManagerListener, Navigati
                     val mapItem = mutableMapOf<String, Any>()
                     val context = activity.applicationContext
 
-                    val productCodeKey = DatabaseContract.MasterColumn.PRODUCT_CODE.getColumnName(context)
+                    val barcodeNoKey = DatabaseContract.MasterColumn.BARCODE_NO.getColumnName(context)
                     val locationKey = DatabaseContract.MasterColumn.LOCATION.getColumnName(context)
-                    val orderDatetimeKey = DatabaseContract.MasterColumn.ORDER_DATETIME.getColumnName(context)
-                    val name1Key = DatabaseContract.MasterColumn.PRODUCT_NAME1.getColumnName(context)
-                    val name2Key = DatabaseContract.MasterColumn.PRODUCT_NAME2.getColumnName(context)
+                    val stockDateKey = DatabaseContract.MasterColumn.STOCK_DATE.getColumnName(context)
+                    val nameKey = DatabaseContract.MasterColumn.PRODUCT_NAME.getColumnName(context)
                     val bookInvKey = DatabaseContract.MasterColumn.BOOK_INVENTORY.getColumnName(context)
                     val physicalInvKey = DatabaseContract.MasterColumn.PHYSICAL_INVENTORY.getColumnName(context)
                     val epcKey = DatabaseContract.MasterColumn.PRODUCT_EPC.getColumnName(context)
                     val scanResultKey = DatabaseContract.MasterColumn.SCAN_RESULT.getColumnName(context)
 
-                    val pCode = dbRowMap[productCodeKey]?.toString() ?: ""
+                    val pCode = dbRowMap[barcodeNoKey]?.toString() ?: ""
                     val loc = dbRowMap[locationKey] as? String ?: context.getString(R.string.layout_row_location_default)
-                    val pDate = dbRowMap[orderDatetimeKey] as? String ?: ""
-                    val pName1 = dbRowMap[name1Key] as? String ?: ""
-                    val pName2 = dbRowMap[name2Key] as? String ?: ""
+                    val pDate = dbRowMap[stockDateKey] as? String ?: ""
+                    val pName = dbRowMap[nameKey] as? String ?: ""
                     val bookInv = (dbRowMap[bookInvKey] as? Long)?.toInt() ?: 0
                     val productEpc = (dbRowMap[epcKey] as? String)?.lowercase(Locale.getDefault()) ?: ""
 
-                    mapItem[productCodeKey] = pCode
+                    mapItem[barcodeNoKey] = pCode
                     mapItem[locationKey] = loc
-                    mapItem[orderDatetimeKey] = pDate
-                    mapItem[name1Key] = pName1
-                    mapItem[name2Key] = pName2
+                    mapItem[stockDateKey] = pDate
+                    mapItem[nameKey] = pName
                     mapItem[bookInvKey] = bookInv.toString()
                     mapItem[physicalInvKey] = "0" // 初期実棚は0
                     mapItem[epcKey] = productEpc
@@ -520,14 +517,12 @@ class MakeInventoryActivity : BasePaddedActivity(), SdkManagerListener, Navigati
 
             // --- キー名の事前取得 ---
             // targetList および currentInventoryList で使用する MasterColumn のキー
-            val productKeyProdCode =
-                DatabaseContract.MasterColumn.PRODUCT_CODE.getColumnName(context)
+            val productKeyBarcode =
+                DatabaseContract.MasterColumn.BARCODE_NO.getColumnName(context)
             val productKeyLocation = DatabaseContract.MasterColumn.LOCATION.getColumnName(context)
-            val productKeyOrderDatetime = DatabaseContract.MasterColumn.ORDER_DATETIME.getColumnName(context)
-            val productKeyName1 =
-                DatabaseContract.MasterColumn.PRODUCT_NAME1.getColumnName(context)
-            val productKeyName2 =
-                DatabaseContract.MasterColumn.PRODUCT_NAME2.getColumnName(context)
+            val productKeyStockDate = DatabaseContract.MasterColumn.STOCK_DATE.getColumnName(context)
+            val productKeyName =
+                DatabaseContract.MasterColumn.PRODUCT_NAME.getColumnName(context)
             val productKeyBookInv =
                 DatabaseContract.MasterColumn.BOOK_INVENTORY.getColumnName(context)
             val productKeyPhysicalInv =
@@ -599,11 +594,10 @@ class MakeInventoryActivity : BasePaddedActivity(), SdkManagerListener, Navigati
                         // --- 3b. currentInventoryList に matched_epc と一致するアイテムが存在しない場合 ---
                         // 新規アイテムとして MainActivity.inventory_progress_list に追加
                         val newItemMap = mutableMapOf<String, Any>()
-                        newItemMap[productKeyProdCode] = baseItemInfoForCurrentInventory[productKeyProdCode] ?: ""
+                        newItemMap[productKeyBarcode] = baseItemInfoForCurrentInventory[productKeyBarcode] ?: ""
                         newItemMap[productKeyLocation] = baseItemInfoForCurrentInventory[productKeyLocation] as? String ?: ""
-                        newItemMap[productKeyOrderDatetime] = baseItemInfoForCurrentInventory[productKeyOrderDatetime] as? String ?: ""
-                        newItemMap[productKeyName1] = baseItemInfoForCurrentInventory[productKeyName1] as? String ?: ""
-                        newItemMap[productKeyName2] = baseItemInfoForCurrentInventory[productKeyName2] as? String ?: ""
+                        newItemMap[productKeyStockDate] = baseItemInfoForCurrentInventory[productKeyStockDate] as? String ?: ""
+                        newItemMap[productKeyName] = baseItemInfoForCurrentInventory[productKeyName] as? String ?: ""
                         newItemMap[productKeyBookInv] = baseItemInfoForCurrentInventory[productKeyBookInv] as? String ?: "0" // targetListから取得
                         newItemMap[productKeyPhysicalInv] = "1" // 実在庫を1
                         newItemMap[productKeyEpc] = matchedEpcForCurrentInventory.uppercase(Locale.getDefault()) // baseItemInfoから取得したEPC
@@ -643,11 +637,10 @@ class MakeInventoryActivity : BasePaddedActivity(), SdkManagerListener, Navigati
     private fun syncCurrentUiDisplayListFromInventoryProgressList() {
         currentUiDisplayList.clear()
         val context = applicationContext
-        val productCodeKey = DatabaseContract.MasterColumn.PRODUCT_CODE.getColumnName(context)
+        val barcodeNoKey = DatabaseContract.MasterColumn.BARCODE_NO.getColumnName(context)
         val locationKey = DatabaseContract.MasterColumn.LOCATION.getColumnName(context)
-        val orderDatetimeKey = DatabaseContract.MasterColumn.ORDER_DATETIME.getColumnName(context)
-        val name1Key = DatabaseContract.MasterColumn.PRODUCT_NAME1.getColumnName(context)
-        val name2Key = DatabaseContract.MasterColumn.PRODUCT_NAME2.getColumnName(context)
+        val stockDateKey = DatabaseContract.MasterColumn.STOCK_DATE.getColumnName(context)
+        val nameKey = DatabaseContract.MasterColumn.PRODUCT_NAME.getColumnName(context)
         val bookInvKey = DatabaseContract.MasterColumn.BOOK_INVENTORY.getColumnName(context)
         val physicalInvKey = DatabaseContract.MasterColumn.PHYSICAL_INVENTORY.getColumnName(context)
         val epcKey = DatabaseContract.MasterColumn.PRODUCT_EPC.getColumnName(context)
@@ -656,11 +649,10 @@ class MakeInventoryActivity : BasePaddedActivity(), SdkManagerListener, Navigati
         MainActivity.inventory_progress_list.forEach { mapItem ->
             val epc_upper = (mapItem[epcKey] as? String ?: "").uppercase(Locale.getDefault())
             val displayItem = ProductListActivity.ProductDisplayItem(
-                product_code = mapItem[productCodeKey] as? String,
+                barcode_no = mapItem[barcodeNoKey] as? String,
                 location = mapItem[locationKey] as? String,
-                order_datetime = mapItem[orderDatetimeKey] as? String,
-                product_name1 = mapItem[name1Key] as? String,
-                product_name2 = mapItem[name2Key] as? String,
+                stock_date = mapItem[stockDateKey] as? String,
+                product_name = mapItem[nameKey] as? String,
                 book_inventory = mapItem[bookInvKey] as? String,
                 physical_inventory = mapItem[physicalInvKey] as? String,
                 product_epc = epc_upper,

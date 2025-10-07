@@ -18,22 +18,22 @@
 
         <!-- 商品コード -->
         <LinearLayout
-            android:id="@+id/linearLayout_product_code"
+            android:id="@+id/linearLayout_barcode_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:id="@+id/layout_row_product_textview_product_code_text"
+                android:id="@+id/layout_row_product_textview_barcode_no_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/layout_row_product_code_text"
+                android:text="@string/layout_row_barcode_no_text"
                 android:textAlignment="viewStart"
                 android:textSize="12sp" />
             <TextView
-                android:id="@+id/layout_row_product_textview_product_code"
+                android:id="@+id/layout_row_product_textview_barcode_no"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/layout_row_product_code_default"
+                android:text="@string/layout_row_barcode_no_default"
                 android:textAlignment="viewStart"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/layout_row_product_textview_product_name1"
+                android:id="@+id/layout_row_product_textview_product_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:autoSizeTextType="@string/layout_activity_product_list_autoSizeTextType"
@@ -75,19 +75,7 @@
                 app:autoSizeMaxTextSize="@dimen/layout_activity_product_list_autoSizeMaxTextSize"
                 app:autoSizeStepGranularity="@dimen/layout_activity_product_list_autoSizeStepGranularity"
                 android:maxLines="1"
-                android:text="@string/layout_row_product_name1_default"
-                android:textAlignment="viewStart"
-                android:textSize="12sp" />
-            <TextView
-                android:id="@+id/layout_row_product_textview_product_name2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:autoSizeTextType="@string/layout_activity_product_list_autoSizeTextType"
-                app:autoSizeMinTextSize="@dimen/layout_activity_product_list_autoSizeMinTextSize"
-                app:autoSizeMaxTextSize="@dimen/layout_activity_product_list_autoSizeMaxTextSize"
-                app:autoSizeStepGranularity="@dimen/layout_activity_product_list_autoSizeStepGranularity"
-                android:maxLines="1"
-                android:text="@string/layout_row_product_name2_default"
+                android:text="@string/layout_row_product_name_default"
                 android:textAlignment="viewStart"
                 android:textSize="12sp" />
         </LinearLayout>

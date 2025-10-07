@@ -26,11 +26,10 @@ import timber.log.Timber
 class ProductListActivity : BasePaddedActivity(), SdkManagerListener, NavigationHelper.NavigationItemSelectedListener {
 
     data class ProductDisplayItem(
-        val product_code: String?, // PRODUCT_CODE
+        val barcode_no: String?, // BARCODE_NO
         val location: String?, // LOCATION
-        val order_datetime: String?, // ORDER_DATETIME
-        val product_name1: String?, // PRODUCT_NAME1
-        val product_name2: String?, // PRODUCT_NAME2
+        val stock_date: String?, // STOCK_DATE
+        val product_name: String?, // PRODUCT_NAME
         val book_inventory: String?,   // BOOK_INVENTORY
         val physical_inventory: String?, // PHYSICAL_INVENTORY
         val product_epc: String?, // PRODUCT_EPC
@@ -543,16 +542,14 @@ class ProductListActivity : BasePaddedActivity(), SdkManagerListener, Navigation
             try {
                 val masterTableName = DatabaseContract.TableName.TABLE_NAME_MASTER
                 // MasterTableから取得するカラムを定義
-                val productCodeCol =
-                    DatabaseContract.MasterColumn.PRODUCT_CODE.getColumnName(activity)
+                val barcodeNoCol =
+                    DatabaseContract.MasterColumn.BARCODE_NO.getColumnName(activity)
                 val locationCol =
                     DatabaseContract.MasterColumn.LOCATION.getColumnName(activity)
-                val orderDatetimeCol =
-                    DatabaseContract.MasterColumn.ORDER_DATETIME.getColumnName(activity)
-                val productName1Col =
-                    DatabaseContract.MasterColumn.PRODUCT_NAME1.getColumnName(activity)
-                val productName2Col =
-                    DatabaseContract.MasterColumn.PRODUCT_NAME2.getColumnName(activity)
+                val stockDateCol =
+                    DatabaseContract.MasterColumn.STOCK_DATE.getColumnName(activity)
+                val productNameCol =
+                    DatabaseContract.MasterColumn.PRODUCT_NAME.getColumnName(activity)
                 val bookInventoryCol =
                     DatabaseContract.MasterColumn.BOOK_INVENTORY.getColumnName(activity)
                 val physicalInventoryCol =
@@ -563,11 +560,10 @@ class ProductListActivity : BasePaddedActivity(), SdkManagerListener, Navigation
                     DatabaseContract.MasterColumn.SCAN_RESULT.getColumnName(activity)
 
                 val columnsToFetch = mutableListOf(
-                    productCodeCol,
+                    barcodeNoCol,
                     locationCol,
-                    orderDatetimeCol,
-                    productName1Col,
-                    productName2Col,
+                    stockDateCol,
+                    productNameCol,
                     bookInventoryCol,
                     physicalInventoryCol,
                     productEPCCol,
@@ -592,38 +588,37 @@ class ProductListActivity : BasePaddedActivity(), SdkManagerListener, Navigation
                     Timber.v( "locationName is '$locationName', fetching items for this location.")
                 }
 
-                // MasterTableからデータを取得 (ソート順は productName1Col ASC を維持すると仮定)
+                // MasterTableからデータを取得 (ソート順は productNameCol ASC を維持すると仮定)
                 val masterDataList = activity.dbHelper.getItems(
                     tableName = masterTableName,
                     columns = columnsToFetch,
                     selection = selection,
                     selectionArgs = selectionArgs,
-                    orderBy = "$productCodeCol ASC" // 必要に応じてソート順を調整
+                    orderBy = "$barcodeNoCol ASC" // 必要に応じてソート順を調整
                 )
 
                 for (itemMap in masterDataList) {
                     if (isCancelled) break
 
-                    val pCode = itemMap[productCodeCol]?.toString() ?: ""
+                    val pCode = itemMap[barcodeNoCol]?.toString() ?: ""
                     val loc = itemMap[locationCol]?.toString() ?: ""
-                    val orderTimeValue = itemMap[orderDatetimeCol]
-                    var orderTime:String
-                    if (orderTimeValue is Long) { // 値がLong型 (タイムスタンプ) の場合
+                    val stockDateValue = itemMap[stockDateCol]
+                    var stockDate:String
+                    if (stockDateValue is Long) { // 値がLong型 (タイムスタンプ) の場合
                         try {
                             val sdf = java.text.SimpleDateFormat("yyyy/MM/dd HH:mm", java.util.Locale.getDefault())
-                            orderTime = sdf.format(java.util.Date(orderTimeValue))
+                            stockDate = sdf.format(java.util.Date(stockDateValue))
                         } catch (e: Exception) {
-                            Timber.w( "Error formatting timestamp: $orderTimeValue", e)
-                            orderTime = orderTimeValue.toString() // フォーマット失敗時は元のLong値を文字列化 (または空文字など)
+                            Timber.w( "Error formatting timestamp: $stockDateValue", e)
+                            stockDate = stockDateValue.toString() // フォーマット失敗時は元のLong値を文字列化 (または空文字など)
                         }
-                    } else if (orderTimeValue is String) { // 既に文字列の場合
-                        orderTime = orderTimeValue
+                    } else if (stockDateValue is String) { // 既に文字列の場合
+                        stockDate = stockDateValue
                     } else { // その他の型、またはnullの場合
-                        orderTime = orderTimeValue?.toString() ?: "" // nullなら空文字
+                        stockDate = stockDateValue?.toString() ?: "" // nullなら空文字
                     }
 
-                    val pName1 = itemMap[productName1Col]?.toString() ?: ""
-                    val pName2 = itemMap[productName2Col]?.toString() ?: ""
+                    val pName = itemMap[productNameCol]?.toString() ?: ""
                     val bInv = itemMap[bookInventoryCol]?.toString() ?: ""
                     val pInv = itemMap[physicalInventoryCol]?.toString() ?: ""
                     val pEpc = itemMap[productEPCCol]?.toString() ?: ""
@@ -634,11 +629,10 @@ class ProductListActivity : BasePaddedActivity(), SdkManagerListener, Navigation
                     // もし MasterTable にこれらの情報がある、または別の計算が必要な場合はここで処理します。
                     productDisplayItems.add(
                         ProductDisplayItem(
-                            product_code = pCode,
+                            barcode_no = pCode,
                             location = loc,
-                            order_datetime = orderTime,
-                            product_name1 = pName1,
-                            product_name2 = pName2,
+                            stock_date = stockDate,
+                            product_name = pName,
                             book_inventory = bInv,
                             physical_inventory = pInv,
                             product_epc = pEpc,
@@ -663,10 +657,9 @@ class ProductListActivity : BasePaddedActivity(), SdkManagerListener, Navigation
 
         // ViewHolderパターンを使用してパフォーマンスを向上させます
         private data class ViewHolder(
-            val productCodeTextView: TextView,
+            val barcodeNoTextView: TextView,
             val locationTextView: TextView,
-            val productName1TextView: TextView,
-            val productName2TextView: TextView,
+            val productNameTextView: TextView,
             val productEpcTextView: TextView,
             val bookInventoryTextView: TextView,
             val physicalInventoryTextView: TextView,
@@ -681,10 +674,9 @@ class ProductListActivity : BasePaddedActivity(), SdkManagerListener, Navigation
                 // row_product.xml をインフレート
                 view = LayoutInflater.from(context).inflate(R.layout.row_product, parent, false)
                 viewHolder = ViewHolder(
-                    productCodeTextView = view.findViewById(R.id.layout_row_product_textview_product_code),
+                    barcodeNoTextView = view.findViewById(R.id.layout_row_product_textview_barcode_no),
                     locationTextView = view.findViewById(R.id.layout_row_product_textview_location),
-                    productName1TextView = view.findViewById(R.id.layout_row_product_textview_product_name1),
-                    productName2TextView = view.findViewById(R.id.layout_row_product_textview_product_name2),
+                    productNameTextView = view.findViewById(R.id.layout_row_product_textview_product_name),
                     productEpcTextView = view.findViewById(R.id.layout_row_product_textview_product_epc),
                     bookInventoryTextView = view.findViewById(R.id.layout_row_product_textview_book_inventory_num),
                     physicalInventoryTextView = view.findViewById(R.id.layout_row_product_textview_physical_inventory_num),
@@ -698,12 +690,9 @@ class ProductListActivity : BasePaddedActivity(), SdkManagerListener, Navigation
 
             val item = getItem(position) // dataSource[position] と同じ
             if (item != null) {
-                viewHolder.productCodeTextView.text = item.product_code ?: ""
+                viewHolder.barcodeNoTextView.text = item.barcode_no ?: ""
                 viewHolder.locationTextView.text = item.location ?: context.getString(R.string.layout_row_location_default)
-                viewHolder.productName1TextView.text = item.product_name1 ?: context.getString(R.string.layout_row_product_name1_default)
-                viewHolder.productName2TextView.text = item.product_name2 ?: context.getString(R.string.layout_row_product_name2_default)
-                // productName2 が空なら非表示にするなどのロジックも追加可能
-                viewHolder.productName2TextView.visibility = if (item.product_name2.isNullOrEmpty()) View.GONE else View.VISIBLE
+                viewHolder.productNameTextView.text = item.product_name ?: context.getString(R.string.layout_row_product_name_default)
                 viewHolder.productEpcTextView.text = item.product_epc
                 viewHolder.bookInventoryTextView.text = item.book_inventory ?: ""
                 viewHolder.physicalInventoryTextView.text = item.physical_inventory ?: ""

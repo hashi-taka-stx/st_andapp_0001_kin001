@@ -3,7 +3,7 @@ package jp.co.softtex.st_andapp_0001_kin001
 import android.content.Context
 
 object DatabaseContract {
-    const val DATABASE_NAME = "st_andapp_0001.db"
+    const val DATABASE_NAME = "st_andapp_0001_kin001.db"
     const val DATABASE_VERSION = 1
 
     object TableName {
@@ -44,7 +44,7 @@ object DatabaseContract {
 
         /**
          * "CREATE TABLE"文で使用するカラム定義文字列を生成します。
-         * 例: "product_code INTEGER NOT NULL"
+         * 例: "barcode_no INTEGER NOT NULL"
          */
         fun getColumnDefinition(context: Context): String =
             "${getColumnName(context)} $dataType $constraints".trim()
@@ -61,11 +61,10 @@ object DatabaseContract {
         val csvHeaderResId: Int? = null // CSVヘッダーの日本語名リソースID
     ) : DefinesColumn {
         ID(R.string.db_col_id, "INTEGER", "PRIMARY KEY AUTOINCREMENT"),
-        PRODUCT_CODE(R.string.db_col_product_code, "INTEGER", "NOT NULL", R.string.csv_header_product_code),
-        ORDER_DATETIME(R.string.db_col_order_datetime, "TEXT", "", R.string.csv_header_order_datetime),
+        BARCODE_NO(R.string.db_col_barcode_no, "TEXT", "NOT NULL", R.string.csv_header_barcode_no),
+        STOCK_DATE(R.string.db_col_stock_date, "TEXT", "", R.string.csv_header_stock_date),
         LOCATION(R.string.db_col_location, "TEXT", "", R.string.csv_header_location),
-        PRODUCT_NAME1(R.string.db_col_product_name1, "TEXT", "", R.string.csv_header_product_name1),
-        PRODUCT_NAME2(R.string.db_col_product_name2, "TEXT", "", R.string.csv_header_product_name2),
+        PRODUCT_NAME(R.string.db_col_product_name, "TEXT", "", R.string.csv_header_product_name),
         BOOK_INVENTORY(R.string.db_col_book_inventory, "INTEGER", "", R.string.csv_header_book_inventory),
         PHYSICAL_INVENTORY(R.string.db_col_physical_inventory, "INTEGER", "DEFAULT NULL", R.string.csv_header_physical_inventory),
         PRODUCT_EPC(R.string.db_col_product_epc, "TEXT", "", R.string.csv_header_product_epc),
@@ -76,14 +75,14 @@ object DatabaseContract {
         /**
          * csvHeaderResIdから対応するデータベースカラム名 (R.string.db_col_xxx のキー部分) を推測する。
          * これは、CSVヘッダー定義のname属性とdb_col_xxxのname属性に強い関連性がある場合に機能する。
-         * (例: csv_header_product_code -> db_col_product_code -> "product_code")
+         * (例: csv_header_barcode_no -> db_col_barcode_no -> "barcode_no")
          * このロジックは、DatabaseHelperでのマッピングを補助するために使用できる。
          */
         fun getAssociatedDbColumnKeyFromCsvHeader(context: Context): String? {
             return csvHeaderResId?.let {
                 try {
-                    val csvHeaderResourceName = context.resources.getResourceEntryName(it) // "csv_header_product_code"
-                    // "csv_header_product_code" から "product_code" を取り出し、"db_col_product_code" のキー部分と一致させる
+                    val csvHeaderResourceName = context.resources.getResourceEntryName(it) // "csv_header_barcode_no"
+                    // "csv_header_barcode_no" から "barcode_no" を取り出し、"db_col_barcode_no" のキー部分と一致させる
                     val derivedKey = csvHeaderResourceName.removePrefix("csv_header_")
                     // この derivedKey を使って、対応する db_col_xxx のリソースIDを探し、そのキーを返す (少し複雑)
                     // より単純には、このderivedKey自体がdb_col_xxxのキー部分と一致することを期待する
@@ -127,11 +126,10 @@ object DatabaseContract {
         override val constraints: String = ""
     ) : DefinesColumn {
         ID(R.string.db_col_id, "INTEGER", "PRIMARY KEY AUTOINCREMENT"),
-        PRODUCT_CODE(R.string.db_col_product_code, "INTEGER", "NOT NULL"),
-        ORDER_DATETIME(R.string.db_col_order_datetime, "TEXT", ""),
+        BARCODE_NO(R.string.db_col_barcode_no, "TEXT", "NOT NULL"),
+        STOCK_DATE(R.string.db_col_stock_date, "TEXT", ""),
         LOCATION(R.string.db_col_location, "TEXT", ""),
-        PRODUCT_NAME1(R.string.db_col_product_name1, "TEXT", ""),
-        PRODUCT_NAME2(R.string.db_col_product_name2, "TEXT", ""),
+        PRODUCT_NAME(R.string.db_col_product_name, "TEXT", ""),
         BOOK_INVENTORY(R.string.db_col_book_inventory, "INTEGER", ""),
         PHYSICAL_INVENTORY(R.string.db_col_physical_inventory, "INTEGER", "DEFAULT NULL"),
         PRODUCT_EPC(R.string.db_col_product_epc, "TEXT", "UNIQUE NOT NULL"), // ProductTableでのキー
@@ -139,18 +137,16 @@ object DatabaseContract {
 
         companion object {
             fun from(context: Context): Array<String> = arrayOf(
-                PRODUCT_CODE.getColumnName(context),
-                PRODUCT_NAME1.getColumnName(context),
-                PRODUCT_NAME2.getColumnName(context),
+                BARCODE_NO.getColumnName(context),
+                PRODUCT_NAME.getColumnName(context),
                 BOOK_INVENTORY.getColumnName(context),
                 PHYSICAL_INVENTORY.getColumnName(context),
                 SCAN_RESULT.getColumnName(context)
             )
 
             fun to(): IntArray = intArrayOf(
-                R.id.layout_row_product_textview_product_code,
-                R.id.layout_row_product_textview_product_name1,
-                R.id.layout_row_product_textview_product_name2,
+                R.id.layout_row_product_textview_barcode_no,
+                R.id.layout_row_product_textview_product_name,
                 R.id.layout_row_product_textview_book_inventory_num,
                 R.id.layout_row_product_textview_physical_inventory_num
             )
@@ -166,11 +162,10 @@ object DatabaseContract {
         override val constraints: String = ""
     ) : DefinesColumn {
         ID(R.string.db_col_id, "INTEGER", "PRIMARY KEY AUTOINCREMENT"),
-        PRODUCT_CODE(R.string.db_col_product_code, "INTEGER", "NOT NULL"),
-        ORDER_DATETIME(R.string.db_col_order_datetime, "TEXT", ""),
+        BARCODE_NO(R.string.db_col_barcode_no, "TEXT", "NOT NULL"),
+        STOCK_DATE(R.string.db_col_stock_date, "TEXT", ""),
         LOCATION(R.string.db_col_location, "TEXT", ""),
-        PRODUCT_NAME1(R.string.db_col_product_name1, "TEXT", ""),
-        PRODUCT_NAME2(R.string.db_col_product_name2, "TEXT", ""),
+        PRODUCT_NAME(R.string.db_col_product_name, "TEXT", ""),
         BOOK_INVENTORY(R.string.db_col_book_inventory, "INTEGER", ""),
         PHYSICAL_INVENTORY(R.string.db_col_physical_inventory, "INTEGER", "DEFAULT NULL"), // 棚卸在庫用
         PRODUCT_EPC(R.string.db_col_product_epc, "TEXT", "UNIQUE NOT NULL"),
@@ -178,9 +173,8 @@ object DatabaseContract {
 
         companion object {
             fun from(context: Context): Array<String> = arrayOf(
-                PRODUCT_CODE.getColumnName(context),
-                PRODUCT_NAME1.getColumnName(context),
-                PRODUCT_NAME2.getColumnName(context),
+                BARCODE_NO.getColumnName(context),
+                PRODUCT_NAME.getColumnName(context),
                 PRODUCT_EPC.getColumnName(context),
                 SCAN_RESULT.getColumnName(context)
             )

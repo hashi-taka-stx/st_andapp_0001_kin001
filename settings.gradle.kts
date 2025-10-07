@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "st_andapp_0001"
+rootProject.name = "st_andapp_0001_kin001"
 include(":app")
  
